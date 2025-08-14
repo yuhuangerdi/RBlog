@@ -10,7 +10,7 @@
 </script>
 
 <script setup lang="ts">
-    
+    import GoTop from './components/GoTop/GoTop.vue';
 </script>
 
 <style scoped>
