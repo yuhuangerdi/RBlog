@@ -1,6 +1,9 @@
 <template>
     <GoTop></GoTop>
+    <TopNavigateBar></TopNavigateBar>
     <div></div>
+    <Footer></Footer>
+    
 </template>
 
 <script lang="ts">
@@ -11,6 +14,8 @@
 
 <script setup lang="ts">
     import GoTop from './components/GoTop/GoTop.vue';
+    import TopNavigateBar from './components/TopNavigateBar/TopNavigateBar.vue';
+    import Footer from './components/Footer/Footer.vue';
 </script>
 
 <style scoped>

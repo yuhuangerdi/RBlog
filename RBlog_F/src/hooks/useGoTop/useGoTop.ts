@@ -1,6 +1,5 @@
 import { ref, onMounted, nextTick } from "vue";
 
-
 export default function useGoTop() {
     let isShow = ref(false);
     
