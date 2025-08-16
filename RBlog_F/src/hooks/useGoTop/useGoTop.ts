@@ -1,6 +1,6 @@
 import { ref, onMounted, nextTick } from "vue";
 
-export default function useGoTop() {
+export default function() {
     let isShow = ref(false);
     
     function goTop(){

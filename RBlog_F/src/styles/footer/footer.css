@@ -119,6 +119,10 @@
     font-size: 0.85rem;
 }
 
+.license:hover{
+    cursor: pointer;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .text-container {

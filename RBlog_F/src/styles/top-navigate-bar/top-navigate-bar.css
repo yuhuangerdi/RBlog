@@ -1,8 +1,9 @@
 .topNavigateBar {
     width: 100%;
     height: 75px;
-    position: fixed;
-    top: 0;
+    position: sticky; 
+    top: 0; 
+    margin-bottom: 0;
     background-color: #303438;
     display: flex;
     align-items: center;
@@ -10,7 +11,7 @@
 
 .LogoContainer {
     margin-left: 7%;
-    margin-right: 2%;
+    margin-bottom: 0;
     height: 75px;
 }
 
@@ -22,6 +23,7 @@
     display: inline-block;
     margin-left: 5%;
     margin-top: 0;
+    margin-bottom: 0;
     height: 40px;
     width: 5%;
     padding-top: 0;
