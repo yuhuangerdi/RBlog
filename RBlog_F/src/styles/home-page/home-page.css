@@ -1,35 +1,41 @@
 .home-page {
     width: 100%;
-    background-color: #f8f9fa;
+    background-color: rgb(242,245,248);
     margin: 0;
-    padding: 2rem 0;
+    padding: 0;
     min-height: 100vh;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* 水平居中整体内容 */
+    gap: 3%; /* 替代margin控制间距，更精准 */
 }
 
 .container {
-    vertical-align: top;
     background-color: #ffffff;
-    display: inline-block;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    padding: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
     box-sizing: border-box;
 }
 
 .aside-container {
     width: 18%;
-    margin-left: 12%;
-    margin-right: 3%;
-    min-height: 300px;
-    padding: 0;
+    /* 关键：sticky定位实现滚动固定 */
+    position: sticky;
+    top: 2rem; /* 固定时距离顶部保留2rem间距，更美观 */
+    align-self: flex-start; /* 初始状态垂直居中 */
+    /* 移除冗余样式 */
+    margin-top: 30vh;
+    background-color: transparent; /* 父容器透明，卡片样式更纯粹 */
+    min-height: auto; /* 由内容决定高度 */
+    padding: 1rem 0; /* 预留内边距避免内容紧贴边缘 */
+    transition: transform 0.3s ease; /* 滚动过渡动画 */
 }
 
 .main-container {
     width: 52%;
-    margin-left: 3%;
-    margin-right: 12%;
-    min-height: 600px;
+    margin: 0; /* 由home-page的gap控制间距 */
+    min-height: 1500px; /* 加长高度便于测试滚动效果 */
+    padding: 2rem; /* 主内容区内边距 */
 }
 /* 
 :deep(h1) {

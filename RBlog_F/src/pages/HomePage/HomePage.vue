@@ -1,7 +1,7 @@
 <template>
     <div class="home-page">
         <div class="aside-container container">
-
+            <InfoCard></InfoCard>
         </div>
         <div class="main-container container">
 
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-
+    import InfoCard from '../../components/InfoCard/InfoCard.vue';
 </script>
 
 <style scoped>
