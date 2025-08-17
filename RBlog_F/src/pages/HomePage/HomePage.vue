@@ -4,7 +4,7 @@
             <InfoCard></InfoCard>
         </div>
         <div class="main-container container">
-
+            <ArticleCard v-for="arti in homeArticleID" :key="arti" :articleID="arti"></ArticleCard>
         </div>
     </div>
 </template>
@@ -17,6 +17,9 @@ export default {
 
 <script lang="ts" setup>
     import InfoCard from '../../components/InfoCard/InfoCard.vue';
+    import ArticleCard from '../../components/ArticleCard/ArticleCard.vue';
+    import useHomePage from '../../hooks/useHomePage/useHomePage';
+    const { homeArticleID } = useHomePage();
 </script>
 
 <style scoped>

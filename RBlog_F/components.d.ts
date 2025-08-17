@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ArticleCard: typeof import('./src/components/ArticleCard/ArticleCard.vue')['default']
     CusAlert: typeof import('./src/components/CusAlert/CusAlert.vue')['default']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     Footer: typeof import('./src/components/Footer/Footer.vue')['default']

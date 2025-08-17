@@ -1,13 +1,15 @@
 /* 卡片容器：渐变背景 + 立体光影 */
 .info-card {
-        width: calc(100% - 2rem); /* 减去父容器的padding */
+    /* 其他样式保持不变 */
+    padding: 36px 24px 32px; /* 顶部padding从32px增至36px，略微增加卡片内部顶部空间 */
+    margin-top: 2rem; /* 卡片与父容器顶部的间距，增强与导航栏的隔离感 */
+    width: calc(100% - 2rem); /* 减去父容器的padding */
     /* 初始加载时的淡入动画，增强体验 */
     animation: cardFadeIn 0.6s ease-out;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 32px 24px;
     box-sizing: border-box;
     background: linear-gradient(150deg, #F9FAFB, #FFFFFF);
     /* 莫兰迪渐变背景 */
