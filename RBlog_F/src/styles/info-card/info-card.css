@@ -1,229 +1,236 @@
 /* 卡片容器：渐变背景 + 立体光影 */
 .info-card {
-    /* 其他样式保持不变 */
-    padding: 36px 24px 32px; /* 顶部padding从32px增至36px，略微增加卡片内部顶部空间 */
-    margin-top: 2rem; /* 卡片与父容器顶部的间距，增强与导航栏的隔离感 */
-    width: calc(100% - 2rem); /* 减去父容器的padding */
-    /* 初始加载时的淡入动画，增强体验 */
-    animation: cardFadeIn 0.6s ease-out;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    background: linear-gradient(150deg, #F9FAFB, #FFFFFF);
-    /* 莫兰迪渐变背景 */
-    border-radius: 18px;
-    box-shadow:
-        0 6px 18px rgba(0, 0, 0, 0.03),
-        0 2px 6px rgba(0, 0, 0, 0.02),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    /* 内阴影模拟厚度 */
-    transition:
-        transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
-        background 0.35s ease,
-        box-shadow 0.35s ease;
-    position: relative;
-    overflow: hidden;
-    z-index: 20;
+  /* 其他样式保持不变 */
+  padding: 36px 24px 32px; /* 顶部padding从32px增至36px，略微增加卡片内部顶部空间 */
+  margin-top: 2rem; /* 卡片与父容器顶部的间距，增强与导航栏的隔离感 */
+  width: calc(100% - 2rem); /* 减去父容器的padding */
+  /* 初始加载时的淡入动画，增强体验 */
+  animation: cardFadeIn 0.6s ease-out;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background: linear-gradient(150deg, #f9fafb, #ffffff);
+  /* 莫兰迪渐变背景 */
+  border-radius: 18px;
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.03),
+    0 2px 6px rgba(0, 0, 0, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  /* 内阴影模拟厚度 */
+  transition:
+    transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 20;
 }
 
 /* 卡片 hover：背景位移 + 阴影强化 */
 .info-card:hover {
-    transform: translateY(-6px);
-    background: linear-gradient(150deg, #F5F7F8, #FFFFFF);
-    box-shadow:
-        0 12px 36px rgba(0, 0, 0, 0.05),
-        0 4px 12px rgba(0, 0, 0, 0.03),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: translateY(-6px);
+  background: linear-gradient(150deg, #f5f7f8, #ffffff);
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.05),
+    0 4px 12px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 /* 头像：高光描边 + 呼吸动画 */
 .avatar {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 3px solid #FFFFFF;
-    box-shadow:
-        0 6px 16px rgba(0, 0, 0, 0.04),
-        inset 0 0 12px rgba(255, 255, 255, 0.9);
-    /* 内高光 */
-    animation: avatarScale 0.8s ease-out;
-    transition: all 0.35s ease;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #ffffff;
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.04),
+    inset 0 0 12px rgba(255, 255, 255, 0.9);
+  /* 内高光 */
+  animation: avatarScale 0.8s ease-out;
+  transition: all 0.35s ease;
 }
 
 /* 头像 hover：光效强化 + 旋转 */
 .info-card:hover .avatar {
-    transform: rotate(6deg) scale(1.03);
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.06),
-        inset 0 0 18px rgba(255, 255, 255, 0.95);
-    border-color: #E6F1FF;
-    /* 淡蓝描边呼应主色 */
+  transform: rotate(6deg) scale(1.03);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.06),
+    inset 0 0 18px rgba(255, 255, 255, 0.95);
+  border-color: #e6f1ff;
+  /* 淡蓝描边呼应主色 */
 }
 
 /* 昵称：渐变文字 + 动态阴影 */
 .nickname {
-    font-size: 22px;
-    font-weight: 700;
-    margin: 0 0 10px 0;
-    background: linear-gradient(45deg, #4A90E2, #66B2FF);
-    /* 主色渐变 */
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-    transition: text-shadow 0.3s ease;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  background: linear-gradient(45deg, #4a90e2, #66b2ff);
+  /* 主色渐变 */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: text-shadow 0.3s ease;
 }
 
 /* 昵称 hover：阴影强化 */
 .info-card:hover .nickname {
-    text-shadow: 0 4px 8px rgba(74, 144, 226, 0.2);
-    /* 主色阴影呼应 */
+  text-shadow: 0 4px 8px rgba(74, 144, 226, 0.2);
+  /* 主色阴影呼应 */
 }
 
 /* 个性签名：渐变滑动 + 朦胧感 */
 .personal-signature {
-    font-size: 14px;
-    color: #888;
-    margin: 0 0 24px 0;
-    line-height: 1.6;
-    text-align: center;
-    max-width: 90%;
-    opacity: 0.9;
-    background: linear-gradient(90deg, #999, #777, #999);
-    /* 渐变文字 */
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 100%;
-    background-position: left;
-    transition:
-        background-position 0.5s ease,
-        opacity 0.3s ease;
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 90%;
+  opacity: 0.9;
+  background: linear-gradient(90deg, #999, #777, #999);
+  /* 渐变文字 */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: left;
+  transition:
+    background-position 0.5s ease,
+    opacity 0.3s ease;
 }
 
 /* 签名 hover：渐变滑动 + 高亮 */
 .info-card:hover .personal-signature {
-    opacity: 1;
-    background-position: right;
+  opacity: 1;
+  background-position: right;
 }
 
 /* 基础信息容器：渐变分割线 + 对称布局 */
 .basic-info {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    padding-top: 20px;
-    margin-top: 20px;
-    border-top: 1px solid #ECECEC;
-    position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #ececec;
+  position: relative;
 }
 
 /* 分割线：渐变装饰（替代伪元素，更灵活） */
 .basic-info::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 60%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #DDE2E7, transparent);
-    /* 渐变分割线 */
-    transform: translateX(-50%);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #dde2e7, transparent);
+  /* 渐变分割线 */
+  transform: translateX(-50%);
 }
 
 /* 统计项：弹性布局 + 交互反馈 */
 .article-count,
 .category-count,
 .tag-count {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.35s ease;
-    position: relative;
-    padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.35s ease;
+  position: relative;
+  padding: 0 12px;
 }
 
 /* 统计项文字：哑光质感 */
 .article-count span:first-child,
 .category-count span:first-child,
 .tag-count span:first-child {
-    font-size: 14px;
-    color: #999;
-    margin-bottom: 8px;
-    line-height: 1;
-    width: 100%;
-    text-align: center;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 8px;
+  line-height: 1;
+  width: 100%;
+  text-align: center;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 
 /* 统计项数字：渐变主色 + 动态光效 */
 .article-count span:last-child,
 .category-count span:last-child,
 .tag-count span:last-child {
-    font-size: 20px;
-    font-weight: 600;
-    background: linear-gradient(45deg, #333, #555);
-    /* 深灰渐变 */
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition:
-        background 0.35s ease,
-        transform 0.35s ease;
+  font-size: 20px;
+  font-weight: 600;
+  background: linear-gradient(45deg, #333, #555); /* 初始深灰渐变 */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease; /* 保留过渡动画 */
+}
+
+/* 新增：悬停在数字本身上时，颜色渐变切换为主色 */
+.article-count span:last-child:hover,
+.category-count span:last-child:hover,
+.tag-count span:last-child:hover {
+  background: linear-gradient(45deg, #4a90e2, #66b2ff); /* 主色渐变 */
+  transform: scale(1.05); /* 可选：轻微放大增强反馈 */
 }
 
 /* 统计项 hover：数字渐变切换 + 轻量上浮 */
 .article-count:hover,
 .category-count:hover,
 .tag-count:hover {
-    transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 .article-count:hover span:last-child,
 .category-count:hover span:last-child,
 .tag-count:hover span:last-child {
-    background: linear-gradient(45deg, #4A90E2, #66B2FF);
-    /* 主色渐变 */
+  background: linear-gradient(45deg, #4a90e2, #66b2ff);
+  /* 主色渐变 */
 }
 
 .article-count:hover span:first-child,
 .category-count:hover span:first-child,
 .tag-count:hover span:first-child {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* 头像加载动画（更灵动的缩放） */
 @keyframes avatarScale {
-    0% {
-        opacity: 0;
-        transform: scale(0.9) rotate(-5deg);
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.9) rotate(-5deg);
+  }
 
-    50% {
-        transform: scale(1.02) rotate(3deg);
-    }
+  50% {
+    transform: scale(1.02) rotate(3deg);
+  }
 
-    100% {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-    }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }
 @keyframes cardFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 /* 隐藏浏览器默认聚焦样式（可选，增强纯净感） */
 .info-card *:focus {
-    outline: none;
+  outline: none;
 }

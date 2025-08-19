@@ -1,83 +1,159 @@
 .home-page {
-    width: 100%;
-    background-color: rgb(242,245,248);
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center; /* 水平居中整体内容 */
-    gap: 3%; /* 替代margin控制间距，更精准 */
+  width: 100%;
+  background-color: rgb(242, 245, 248);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  /* 改为垂直排列：首屏背景在上，内容在下 */
+  display: flex;
+  flex-direction: column;
 }
 
+/* 新增：顶部全屏背景图模块 */
+.hero-section {
+  /* 关键：占满整个屏幕高度 */
+  min-height: 100vh;
+  /* 背景图设置（替换为实际图片路径） */
+  background-image: url('../../assets/HomePageBackGround.jpg'); /* 示例图片 */
+  background-size: cover; /* 图片铺满容器 */
+  background-position: center; /* 图片居中 */
+  background-attachment: fixed; /* 滚动时背景图固定，增强沉浸感（可选） */
+  background-repeat: no-repeat;
+  /* 内容居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* 叠加半透明遮罩，提升文字可读性 */
+  opacity: 0; /* 初始隐藏 */
+  animation: contentFadeIn 1.2s 0.3s forwards ease-out; /* 延迟0.3s入场 */
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* 黑色半透明遮罩 */
+  z-index: 1;
+}
+
+.hero-section.scrolled {
+  .hero-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+.hero-section::before {
+    animation-play-state: paused; /* 滚动后暂停背景呼吸，聚焦内容 */
+  }
+}
+
+/* 首屏文字内容 */
+.hero-content {
+  position: relative;
+  z-index: 2; /* 确保文字在遮罩上方 */
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+  transform: translateY(-10vh);
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: titleSlideUp 0.8s 0.5s forwards ease-out;
+}
+
+.hero-desc {
+  font-size: 1.6rem;
+  letter-spacing: 1.2px;
+  max-width: 800px;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: titleSlideUp 0.8s 0.8s forwards ease-out;
+}
+
+.hero-content .el-icon {
+  /* 稍微放大图标 */
+  font-size: 2.5rem; /* 放大尺寸 */
+  margin-bottom: 3vh; /* 距离底部保留一点空间 */
+  cursor: pointer; /* 提示可点击 */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* 增强立体感 */
+  transition: all 0.3s ease;
+  transform: translateY(40vh);
+  color: inherit;
+}
+
+@keyframes titleSlideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 内容区整体淡入 */
+@keyframes contentFadeIn {
+  to { opacity: 1; }
+}
+
+/* 新增：包裹原有内容的容器 */
+.content-wrapper {
+  /* 让内容紧跟在首屏背景下方，滚动时自然露出 */
+  width: 100%;
+  display: flex;
+  justify-content: center; /* 水平居中内容 */
+  gap: 3%; /* 侧边栏与主内容的间距 */
+  padding: 2rem 0; /* 上下留白，避免内容紧贴首屏底部 */
+  box-sizing: border-box;
+}
+
+/* 原有样式调整 */
 .container {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
-    box-sizing: border-box;
+  background-color: transparent;
 }
 
 .aside-container {
-    top: 2.5rem; /* 从2rem增至2.5rem，增大与导航栏的间距（1rem≈16px，2.5rem≈40px） */
-    margin-top: 30vh; /* 初始状态距离顶部30%视口高度，已与导航栏有间距 */
-    padding-top: 0.5rem; /* 额外增加父容器内边距，确保卡片顶部有缓冲 */
-    width: 18%;
-    /* 关键：sticky定位实现滚动固定 */
-    position: sticky;
-    align-self: flex-start; /* 初始状态垂直居中 */
-    /* 移除冗余样式 */
-    background-color: transparent; /* 父容器透明，卡片样式更纯粹 */
-    min-height: auto; /* 由内容决定高度 */
-    padding: 1rem 0; /* 预留内边距避免内容紧贴边缘 */
-    transition: transform 0.3s ease; /* 滚动过渡动画 */
+  width: 18%;
+  position: sticky;
+  top: 6vh; /* 滚动时固定在顶部下方的位置（保持不变） */
+  align-self: flex-start; /* 与 main-container 顶部对齐作为基准 */
+  padding: 1rem;
+  /* 核心：初始加载时距离 main-container 顶部30%（以视口高度为参考，更符合视觉预期） */
+  margin-top: 20vh; /* 30%视口高度的初始偏移 */
+  /* 添加过渡效果，使滚动时的位置变化更平滑 */
+  transition: margin-top 0.3s ease;
+
 }
+
 
 .main-container {
-    width: 52%;
-    margin: 0; /* 由home-page的gap控制间距 */
-    min-height: 1500px; /* 加长高度便于测试滚动效果 */
-    padding: 2rem; /* 主内容区内边距 */
-    background-color: transparent;
-}
-/* 
-:deep(h1) {
-    font-size: 1.8rem;
-    color: #2d3436;
-    margin: 0 0 1.5rem 0;
-    font-weight: 600;
+  width: 52%;
+  min-height: 1500px; /* 测试用高度，实际由内容决定 */
+  padding: 2rem;
 }
 
-:deep(h2) {
-    font-size: 1.4rem;
-    color: #2d3436;
-    margin: 1.5rem 0 1rem 0;
-    font-weight: 600;
+/* 响应式调整：小屏幕首屏文字缩小，内容垂直排列 */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-desc {
+    font-size: 1rem;
+  }
+  .content-wrapper {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .aside-container, .main-container {
+    width: 100%;
+  }
 }
-
-:deep(p) {
-    color: #636e72;
-    line-height: 1.6;
-    margin: 0 0 1rem 0;
-}
-
-:deep(a) {
-    color: #0984e3;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-:deep(a:hover) {
-    color: #74b9ff;
-}
-
-:deep(.sidebar-widget) {
-    margin-bottom: 2rem;
-}
-
-:deep(.sidebar-title) {
-    font-size: 1.2rem;
-    color: #2d3436;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #f1f1f1;
-} */

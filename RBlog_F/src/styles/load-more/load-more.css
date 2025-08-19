@@ -1,0 +1,15 @@
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.loading-skeleton {
+    width: 100%;
+    max-width: 800px;
+}
+
+.no-more-text {
+    color: #666;
+    font-size: 14px;
+}

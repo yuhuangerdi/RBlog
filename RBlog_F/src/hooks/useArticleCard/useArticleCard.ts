@@ -1,29 +1,33 @@
 import { onMounted, ref } from "vue";
 import { type ArticleCardDataInter } from "../../types";
 import axios from "axios";
-import { ar } from "element-plus/es/locales.mjs";
 
 export default function(articleID:number){
     let articleInfo = ref<ArticleCardDataInter | null>(null);
+    
     async function getArticleInfo() {
         try {
-            let result = await axios.get(`http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleCardData/${articleID}`)
-            articleInfo.value = result.data
-            console.log(articleInfo.value);
+            let articleInfoResult = await axios.get(`http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleCardData/${articleID}`)
+            articleInfo.value = articleInfoResult.data;
         } 
         catch (error) {
-            alert(error)
+            alert(error);
         }
+    }
+    function view(id:string){
+        alert(`view ${id}`);
+    }
+    function viewTag(){
+        alert("Tag");
     }
 
     onMounted(() => {
         getArticleInfo();
     });
 
-    function view(id:string){}
-
     return {
         articleInfo,
-        view    
+        view,
+        viewTag   
     }
 }

@@ -1,7 +1,7 @@
 <template>
-        <div class = "go-top" @click = "goTop" v-show = "isShow">
-            <i class = "arrow"><CaretTop /></i>
-        </div>
+    <div class = "go-top" @click = "goTop" v-show = "isShow">
+        <i class = "arrow"><CaretTop/></i>
+    </div>
 </template>
 
 <script lang="ts">

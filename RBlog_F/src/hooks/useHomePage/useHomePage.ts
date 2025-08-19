@@ -1,16 +1,12 @@
-import axios from "axios";
-import { onMounted, ref } from "vue";
-
-export default function() {
-    let homeArticleID = ref([]);
-    async function getHomeArticleID() {
-        let result = await axios.get("http://127.0.0.1:4523/m2/5985264-5673651-default/337094423");
-        homeArticleID.value = result.data.homeArticleID;
-    }
-    onMounted(()=>{
-        getHomeArticleID();
+import { onMounted } from 'vue'
+export default function () {
+    onMounted(() => {
+    // 监听滚动，当滚动超过50px时给hero-section添加scrolled类
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero-section')
+            if (hero) {
+                hero.classList.toggle('scrolled', window.scrollY > 50)
+            }
+        })
     })
-    return {
-        homeArticleID
-    }
 }

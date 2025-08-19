@@ -22,17 +22,16 @@
 </template>
 
 <script lang="ts">
-export default {
-    name: "Footer"
-}
+    export default {
+        name: "Footer"
+    }
 </script>
 
 <script lang="ts" setup>
-import useFooter from "../../hooks/useFooter/useFooter"
-import { ElMessageBox } from 'element-plus'
-let { alertCC } = useFooter()
+    import useFooter from "../../hooks/useFooter/useFooter"
+    let { alertCC } = useFooter()
 </script>
 
 <style scoped>
-@import "../../styles/footer/footer.css";
+    @import "../../styles/footer/footer.css";
 </style>

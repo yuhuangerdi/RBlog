@@ -23,5 +23,5 @@ export default {
 </script>
 
 <style scoped>
-    @import "../../styles/info-card/info-card.css"
+    @import "../../styles/info-card/info-card.css";
 </style>

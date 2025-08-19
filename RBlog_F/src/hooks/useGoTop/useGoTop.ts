@@ -23,5 +23,6 @@ export default function() {
             window.addEventListener('scroll', needToShow);      // 监听滚动事件，实时更新isShow的值
         })
     })
+    
     return {goTop, isShow}
 }
