@@ -1,0 +1,91 @@
+/* 分页容器居中 */
+.pagination-block {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  margin-top: 2rem; /* 与上方卡片保持间距 */
+  padding: 1rem 0; /* 增加点击区域上下内边距 */
+}
+
+/* 穿透scoped样式修改element-ui分页组件 */
+::v-deep .el-pagination {
+  /* 分页整体间距 */
+  gap: 0.5rem;
+}
+
+/* 页码按钮基础样式 */
+::v-deep .el-pagination__item {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px; /* 圆角设计，与卡片风格统一 */
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  color: #666;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  margin: 0 2px; /* 缩小页码间距离 */
+}
+
+/* 页码按钮hover效果 */
+::v-deep .el-pagination__item:hover {
+  border-color: #4a90e2; /* 主色调边框 */
+  color: #4a90e2;
+  background-color: #f0f7ff; /* 淡蓝背景，增强交互感 */
+}
+
+/* 当前页码样式 */
+::v-deep .el-pagination__item.is-active {
+  background-color: #4a90e2; /* 主色调填充 */
+  color: #ffffff;
+  border-color: #4a90e2;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2); /* 轻微发光效果 */
+}
+
+/* 上一页/下一页按钮样式 */
+::v-deep .el-pagination__prev,
+::v-deep .el-pagination__next {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+/* 上一页/下一页hover效果 */
+::v-deep .el-pagination__prev:hover,
+::v-deep .el-pagination__next:hover {
+  border-color: #4a90e2;
+  color: #4a90e2;
+  background-color: #f0f7ff;
+}
+
+/* 禁用状态样式 */
+::v-deep .el-pagination__prev.is-disabled,
+::v-deep .el-pagination__next.is-disabled {
+  border-color: #e5e7eb;
+  color: #ccc;
+  background-color: #f9fafb;
+  cursor: not-allowed;
+}
+
+/* 响应式调整（小屏幕优化） */
+@media (max-width: 480px) {
+  ::v-deep .el-pagination__item {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  
+  ::v-deep .el-pagination__prev,
+  ::v-deep .el-pagination__next {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .pagination-block {
+    margin-top: 1.5rem;
+  }
+}

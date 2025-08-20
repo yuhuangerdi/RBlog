@@ -3,7 +3,7 @@ import router from "@/router";
 
 export default function(name: string) {
     function jumpToSignal() {
-        router.push(`/article/category/signal`)
+        router.push(`/article/category/signal?search=${name}`)
     }
     return {
         jumpToSignal,

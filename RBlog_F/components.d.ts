@@ -14,6 +14,7 @@ declare module 'vue' {
     CategoryCard: typeof import('./src/components/CategoryCard/CategoryCard.vue')['default']
     CusAlert: typeof import('./src/components/CusAlert/CusAlert.vue')['default']
     ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElPagination: typeof import('element-plus/es')['ElPagination']
     ElProgress: typeof import('element-plus/es')['ElProgress']
     Footer: typeof import('./src/components/Footer/Footer.vue')['default']
     GoTop: typeof import('./src/components/GoTop/GoTop.vue')['default']
