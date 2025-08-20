@@ -1,0 +1,185 @@
+/* 父容器样式 */
+.side-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* 卡片通用样式 */
+.side-card > div {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+/* 卡片hover效果 */
+.side-card > div:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* 金句卡片样式 */
+.famous-saying {
+  position: sticky;
+  top: 1vh; /* 最终停留位置 */
+  margin-top: 15%; /* 初始距离顶端 */
+  transition: margin-top 0.5s ease;
+}
+
+/* 金句标题样式 */
+.famous-saying::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: linear-gradient(90deg, #4a90e2, #66b2ff);
+  margin-bottom: 1rem;
+  border-radius: 2px;
+}
+
+.famous-saying:first-child {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.famous-saying p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+  position: relative;
+  padding: 0 1rem;
+}
+
+/* 金句引号装饰 */
+.famous-saying p::before,
+.famous-saying p::after {
+  content: '"';
+  color: #454545;
+  font-size: 32px;
+  position: absolute;
+  opacity: 0.7;
+}
+
+.famous-saying p::before {
+  top: -10px;
+  left: -5px;
+}
+
+.famous-saying p::after {
+  bottom: -20px;
+  right: -5px;
+}
+
+/* 日历图片卡片样式 */
+.calendar-img {
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 0;
+}
+
+.calendar-img-pic {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.calendar-img:hover .calendar-img-pic {
+  transform: scale(1.03);
+}
+
+/* 统计卡片样式 */
+.statistics {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 5%;
+}
+
+.statistics p:first-child {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* 进度条样式调整 */
+.statistics .el-progress {
+  margin: 0.5rem 0;
+}
+
+
+/* 统计数据项样式 */
+.statistics .operation-days,
+.statistics .visitor-count,
+.statistics .reading-count {
+  margin: 0;
+
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+/* 统计数据项数值样式 */
+.statistics .operation-days::after,
+.statistics .visitor-count::after,
+.statistics .reading-count::after {
+  content: attr(data-value);
+  font-weight: 600;
+  color: #4a90e2;
+  transition: transform 0.3s ease;
+}
+
+/* 统计项hover效果 */
+.statistics .operation-days:hover::after,
+.statistics .visitor-count:hover::after,
+.statistics .reading-count:hover::after {
+  transform: scale(1.05);
+}
+
+/* 滚动动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 为卡片添加进入动画 */
+.famous-saying, .calendar-img, .statistics {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.calendar-img {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.statistics {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+hr{
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #000000;
+}

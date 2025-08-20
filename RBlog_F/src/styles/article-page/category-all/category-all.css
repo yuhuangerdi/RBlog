@@ -1,0 +1,8 @@
+.category-card-list {
+    width: 100%; /* 父容器宽度可根据需求调整（如80%） */
+    display: flex;
+    flex-wrap: wrap; /* 超出自动换行 */
+    gap: 20px; /* 卡片之间的间距（水平+垂直） */
+    padding: 10px 0;
+    box-sizing: border-box;
+}

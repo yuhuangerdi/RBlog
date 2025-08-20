@@ -9,18 +9,18 @@
             <div class="article-dropdown" :class="{ 'show': showArticleDropdown }">
                 <div>
                     <!-- 前四个动态项 -->
-                    <router-link v-for="(item, index) in articleItems" :key="index" :to="`/article?category=${item}`"
+                    <router-link v-for="(item, index) in articleItems" :key="index" :to="`/article/category/signal?search=${item}`"
                         class="dropdown-item" @click="closeDropdown">
                         {{ item }}
                     </router-link>
-                    <router-link to="/article" class="dropdown-item more-item" @click="closeDropdown">
+                    <router-link to="/article/category/all" class="dropdown-item more-item" @click="closeDropdown">
                         更多
                     </router-link>
                 </div>
             </div>
         </div>
         <div class="MenuContainer"><router-link class="MenuLink" to="/feeling">碎碎念</router-link></div>
-        <div class="MenuContainer"><router-link class="MenuLink" to="/archive">归档</router-link></div>
+        <div class="MenuContainer"><router-link class="MenuLink" to="/archiving">归档</router-link></div>
         <div class="MenuContainer"><router-link class="MenuLink" to="/about">关于</router-link></div>
         <div class="MenuContainer"><router-link class="MenuLink" to="/message">留言</router-link></div>
     </div>

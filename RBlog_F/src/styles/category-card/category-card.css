@@ -1,0 +1,87 @@
+/* 卡片容器：改为水平布局 */
+.category-card {
+  width: calc(50% - 10px); /* 保持原宽度 */
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  display: flex; /* 改为水平排列 */
+  align-items: flex-start; /* 顶部对齐 */
+  gap: 16px; /* 左右两部分间距 */
+  border: 1px solid #f5f5f5;
+}
+
+/* 左侧容器：Logo + 名称（垂直排列） */
+.card-left {
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  align-items: center; /* 水平居中，让Logo和名称对齐 */
+  width: 80px; /* 固定宽度，确保不挤压右侧 */
+}
+
+/* Logo容器：保持原有大小 */
+.card-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px; /* 与名称的间距 */
+  transition: all 0.3s ease;
+}
+
+/* Logo图片：保持原有大小 */
+.logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* 名称：放在Logo下方，居中对齐 */
+.card-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0; /* 清除默认margin */
+  background: linear-gradient(45deg, #4a90e2, #66b2ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center; /* 文字居中，与Logo对齐 */
+  line-height: 1.2; /* 紧凑行高 */
+}
+
+/* 右侧简介：占满剩余空间 */
+.card-desc {
+  flex: 1; /* 占据剩余宽度，最大化空间 */
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6; /* 宽松行高，提升可读性 */
+  margin: 0; /* 清除默认margin */
+  padding-top: 4px; /* 轻微下移，与左侧Logo顶部对齐 */
+}
+
+/* 保持原有hover交互效果 */
+.category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: #e8f4ff;
+}
+
+.category-card:hover .card-logo {
+  background: #f0f7ff;
+  transform: scale(1.05);
+}
+
+/* 加载动画不变 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.category-card {
+  animation: fadeIn 0.4s ease-out forwards;
+}

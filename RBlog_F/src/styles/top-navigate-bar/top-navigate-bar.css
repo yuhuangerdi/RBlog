@@ -143,7 +143,7 @@
 .dropdown-item:hover {
   background-color: #343a42; /* 更深的背景 */
   color: #4fc3f7; /* 品牌色高亮 */
-  padding-left: 28px; /* 轻微右移，增强交互感 */
+
 }
 
 /* 箭头图标样式 */
@@ -174,4 +174,14 @@
 .article-link {
   position: relative;
   z-index: 1; /* 确保hover优先 */
+}
+
+/* 新增：路径包含时（子路由）也显示下划线 */
+.MenuLink.router-link-active::after {
+  width: 80%; /* 子路由匹配时同样显示下划线 */
+}
+
+/* 可选：如果需要区分精确匹配和包含匹配的样式（如颜色），可补充 */
+.MenuLink.router-link-active {
+  color: #ffffff; /* 子路由时文字也保持白色 */
 }

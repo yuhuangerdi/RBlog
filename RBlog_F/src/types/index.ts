@@ -17,3 +17,16 @@ export interface ArticleCardDataInter {
     tags: string[],
     date: string,
 }
+
+export interface SideCardDataInter {
+    saying: string,
+    operationDays: number,
+    visitorCount: number,
+    readingCount: number
+}
+
+export interface CategoriesDataInter {
+    imgPath: string,
+    name: string,
+    description: string
+}

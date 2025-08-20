@@ -4,8 +4,8 @@
         <div class="hero-section">
             <!-- 可添加标题、副标题等首屏内容 -->
             <div class="hero-content">
-                <h1 class="hero-title">人生如逆旅，我亦是行人</h1>
-                <p class="hero-desc">Life's &nbsp a &nbsp rugged &nbsp loop, &nbsp I'm &nbsp but &nbsp a &nbsp coder &nbsp in &nbsp it.</p>
+                <h1 class="hero-title">{{ content.contentCN }}</h1>
+                <p class="hero-desc">{{ content.contentEN }}</p>
                 <el-icon><ArrowDownBold /></el-icon>
             </div>
         </div>
@@ -15,7 +15,7 @@
                 <InfoCard></InfoCard>
             </div>
             <div class="main-container container">
-                <ArticleScrollPage></ArticleScrollPage>
+                <HomeScrollPage></HomeScrollPage>
             </div>
         </div>
     </div>
@@ -30,11 +30,11 @@
 <script lang="ts" setup>
     import useHomePage from '@/hooks/useHomePage/useHomePage';
     import InfoCard from '../../components/InfoCard/InfoCard.vue';
-    import ArticleScrollPage from '../../components/ArticleScrollPage/ArticleScrollPage.vue';
+    import HomeScrollPage from '../../components/HomeScrollPage/HomeScrollPage.vue';
     import { ElIcon } from 'element-plus';
     import { ArrowDownBold } from '@element-plus/icons-vue'
 
-    useHomePage();
+    const { content } = useHomePage();
 </script>
 
 <style scoped>

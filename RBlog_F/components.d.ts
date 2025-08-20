@@ -10,18 +10,22 @@ declare module 'vue' {
   export interface GlobalComponents {
     ArticleCard: typeof import('./src/components/ArticleCard/ArticleCard.vue')['default']
     ArticleLoadMore: typeof import('./src/components/LoadMore/ArticleLoadMore.vue')['default']
-    ArticleScrollPage: typeof import('./src/components/ArticleScrollPage/ArticleScrollPage.vue')['default']
+    ArticlePageSideCard: typeof import('./src/components/SideCard/ArticlePageSideCard.vue')['default']
+    CategoryCard: typeof import('./src/components/CategoryCard/CategoryCard.vue')['default']
     CusAlert: typeof import('./src/components/CusAlert/CusAlert.vue')['default']
     ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElProgress: typeof import('element-plus/es')['ElProgress']
     Footer: typeof import('./src/components/Footer/Footer.vue')['default']
     GoTop: typeof import('./src/components/GoTop/GoTop.vue')['default']
     HomePage: typeof import('./src/components/HomePage/HomePage.vue')['default']
+    HomeScrollPage: typeof import('./src/components/HomeScrollPage/HomeScrollPage.vue')['default']
     InfoCard: typeof import('./src/components/InfoCard/InfoCard.vue')['default']
     LoadMore: typeof import('./src/components/LoadMore/LoadMore.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ScrollPage: typeof import('./src/components/ScrollPage/ScrollPage.vue')['default']
     ScrollPageLoading: typeof import('./src/components/ScrollPageLoading/ScrollPageLoading.vue')['default']
+    SideCard: typeof import('./src/components/SideCard/SideCard.vue')['default']
     TopNavigateBar: typeof import('./src/components/TopNavigateBar/TopNavigateBar.vue')['default']
   }
   export interface GlobalDirectives {

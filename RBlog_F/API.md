@@ -1,8 +1,8 @@
 # API使用说明
 
-### 一、InfoCard调用接口获取博主信息
+### 一、InfoCard调用接口（InfoCardData）获取博主信息
 
-#### 1、接口json
+#### 1、接口json（type InfoCardDataInter）
 
 InfoCardDataInter {
 
@@ -32,7 +32,9 @@ apiRBlog.yyluo.cn/
 
 useInfoCard.ts
 
-### 二、HomePage main-container调用接口获取首页展示文章ID
+
+
+### 二、HomePage main-container调用接口（HomeArticleID）获取首页展示文章ID
 
 #### 1、接口json
 
@@ -54,9 +56,11 @@ apiRBlog.yyluo.cn/
 
 useScrollPage.ts
 
-### 三、Article Card接受id后像服务器请求数据
 
-#### 1、接口json
+
+### 三、Article Card调用接口（ArticleCardData）接受id后像服务器请求数据
+
+#### 1、接口json（type ArticleCardDataInter）
 
 {
 
@@ -89,3 +93,57 @@ apiRBlog.yyluo.cn/
 #### 4、文件
 
 useArticleCard.ts
+
+
+
+### 四、topNavigateBar调用接口（ArticleDropdownList）获取文章目录下拉栏
+
+#### 1、接口json
+
+{
+
+    ArticleDropdownList: string[]
+
+}
+
+#### 2、测试地址
+
+http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleDropdownList
+
+#### 3、正式api地址
+
+apiRBlog.yyluo.cn/
+
+#### 4、文件
+
+useTopNavigateBar.ts
+
+
+
+### 五、SideCard调用接口（SideCard）获取侧边栏信息
+
+#### 1、接口json（type SideCardDataInter）
+
+SideCardDataInter {
+
+    saying: string,
+
+    operationDays: number,
+
+    visitorCount: number,
+
+    readingCount: number
+
+}
+
+#### 2、测试地址
+
+http://127.0.0.1:4523/m1/5985264-5673651-default/api/SideCard
+
+#### 3、正式api地址
+
+apiRBlog.yyluo.cn/
+
+#### 4、文件
+
+useSideCard.ts

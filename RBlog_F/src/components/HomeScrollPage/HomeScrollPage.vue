@@ -1,5 +1,5 @@
 <template>
-    <div class="article-scroll-page">
+    <div class="home-scroll-page">
         <ArticleCard 
             v-for="arti in homeArticleID" 
             :key="arti" 
@@ -16,23 +16,17 @@
 
 <script lang="ts">
     export default {
-        name:"ArticleScrollPage"
+        name:"HomeScrollPage",
     }
 </script>
 
 <script lang="ts" setup>
     import ArticleCard from '../../components/ArticleCard/ArticleCard.vue';
     import LoadMore from '../../components/LoadMore/LoadMore.vue'; // 引入新组件
-    import useScrollPage from '../../hooks/useArticleScrollPage/useArticleScrollPage';  
-    const { homeArticleID, loading, noMore, loadMore } = useScrollPage();
+    import useHomeScrollPage from '../../hooks/useHomeScrollPage/useHomeScrollPage';  
+    const { homeArticleID, loading, noMore, loadMore } = useHomeScrollPage();
 </script>
 
 <style scoped>
-    .article-scroll-page {
-        width: 100%;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
+    @import "../../styles/home-scroll-page/home-scroll-page.css";
 </style>

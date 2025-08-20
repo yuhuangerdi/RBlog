@@ -10,8 +10,7 @@ export default function() {
     async function getArticleDropdownList(){
         try {
             let articleDropdownListResult = await axios.get('http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleDropdownList')
-            articleItems.value = articleDropdownListResult.data.ArticleDropdownList;
-            console.log(articleItems.value);
+            articleItems.value = articleDropdownListResult.data.articleDropdownList;
         } catch (err) {
             console.error(err)
         }
