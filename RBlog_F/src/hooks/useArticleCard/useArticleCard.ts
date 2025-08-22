@@ -1,6 +1,7 @@
 import { onMounted, ref } from "vue";
 import { type ArticleCardDataInter } from "../../types";
 import axios from "axios";
+import router from "@/router";
 
 export default function(articleID:number){
     let articleInfo = ref<ArticleCardDataInter | null>(null);
@@ -15,7 +16,7 @@ export default function(articleID:number){
         }
     }
     function view(id:string){
-        alert(`view ${id}`);
+        router.push(`/reading?id=${id}`);
     }
     function viewTag(){
         alert("Tag");

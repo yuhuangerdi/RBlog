@@ -1,6 +1,8 @@
-import { defineComponent, ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import {type ArticleApiResponseInter} from '@/types'
+import { useRoute } from 'vue-router'
+import { watch } from 'vue'
 
 export default function () {
     const fetchArticle = async (articleId: string): Promise<string> => {
@@ -10,10 +12,8 @@ export default function () {
 
         // 使用Promise.race实现超时控制
         const response = await Promise.race([
-            axios.post<ArticleApiResponseInter>(
-            'http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleContent',
-            { id: parseInt(articleId) }, // 确保ID是数字类型
-            ),
+            axios.get<ArticleApiResponseInter>(
+            `http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleContent?id=${articleId}`),
             new Promise<never>((_, reject) => setTimeout(() => reject(new Error('请求超时')), timeout)),
         ])
 
@@ -53,10 +53,12 @@ export default function () {
     }
     const articleContent = ref<string>('')
     const headings = ref<Array<{ id: string; text: string; level: number }>>([])
+    const route = useRoute();
+    const id = route.query.id as string;
 
     const loadArticle = async () => {
         try {
-        const content = await fetchArticle('1')
+        const content = await fetchArticle(id)
         articleContent.value = content
         } catch (error) {
         console.error('Failed to load article:', error)
@@ -68,6 +70,13 @@ export default function () {
     ) => {
         headings.value = newHeadings
     }
+
+    watch(
+    () => route.query.id,
+    (id) => {
+    },
+    { immediate: true } // 初始加载时立即执行
+    );
 
     onMounted(() => {
         loadArticle()

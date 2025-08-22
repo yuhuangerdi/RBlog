@@ -320,7 +320,7 @@ useCategorySignal.ts
 
 #### 2、测试地址
 
-http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleContent
+http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleContent?id=
 
 #### 3、正式api地址
 
@@ -329,15 +329,3 @@ apiRBlog.yyluo.cn/
 #### 4、文件
 
 useReadPage.ts
-
-#### 5、post的查询参数
-
-**此api为带查询参数的post**
-
-```JSON
-{
-
-    id: number
-
-}
-```

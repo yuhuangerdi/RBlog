@@ -20,7 +20,6 @@ export default function() {
                 page:nowPage.value
             });
         nowArticleIdArray.value = NowPageArticleIdArrayResult.data.id;
-        console.log(nowArticleIdArray.value);
     }
 
     watch(nowPage,()=>{
