@@ -1,9 +1,14 @@
 # API使用说明
 
+
+
+
+
 ### 一、InfoCard调用接口（InfoCardData）获取博主信息
 
 #### 1、接口json（type InfoCardDataInter）
 
+```
 InfoCardDataInter {
 
     avatarUrl: string,
@@ -19,6 +24,7 @@ InfoCardDataInter {
     tagCount: number,
 
 }
+```
 
 #### 2、测试地址
 
@@ -32,15 +38,19 @@ apiRBlog.yyluo.cn/
 
 useInfoCard.ts
 
+
+
 ### 二、HomePage main-container调用接口（HomeArticleID）获取首页展示文章ID
 
 #### 1、接口json
 
+```
 {
 
     HomeArticleID：[]
 
 }
+```
 
 #### 2、测试地址
 
@@ -54,10 +64,13 @@ apiRBlog.yyluo.cn/
 
 useScrollPage.ts
 
+
+
 ### 三、Article Card调用接口（ArticleCardData）接受id后像服务器请求数据
 
 #### 1、接口json（type ArticleCardDataInter）
 
+```
 {
 
     title: string,
@@ -77,6 +90,7 @@ useScrollPage.ts
     date: string,
 
 }
+```
 
 #### 2、测试地址
 
@@ -90,15 +104,19 @@ apiRBlog.yyluo.cn/
 
 useArticleCard.ts
 
+
+
 ### 四、topNavigateBar调用接口（ArticleDropdownList）获取文章目录下拉栏
 
 #### 1、接口json
 
+```
 {
 
     ArticleDropdownList: string[]
 
 }
+```
 
 #### 2、测试地址
 
@@ -112,10 +130,13 @@ apiRBlog.yyluo.cn/
 
 useTopNavigateBar.ts
 
+
+
 ### 五、SideCard调用接口（SideCard）获取侧边栏信息
 
 #### 1、接口json（type SideCardDataInter）
 
+```
 {
 
     saying: string,
@@ -127,6 +148,7 @@ useTopNavigateBar.ts
     readingCount: number
 
 }
+```
 
 #### 2、测试地址
 
@@ -140,17 +162,23 @@ apiRBlog.yyluo.cn/
 
 useSideCard.ts
 
+
+
 ### 六、CategoriyAll调用接口（CategoriesData）获取侧边栏信息
 
 #### 1、接口json（type CategoriesDataInter）
 
- {
+```
+{
 
     imgPath: string,
 
     name: string,
 
     description: string
+
+}
+```
 
 #### 2、测试地址
 
@@ -170,6 +198,7 @@ CategoriyAll.ts
 
 #### 1、接口json
 
+```
 {
 
 homePage{
@@ -181,6 +210,7 @@ homePage{
     }
 
 }
+```
 
 #### 2、测试地址
 
@@ -202,11 +232,13 @@ useArticlePage.ts
 
 #### 1、接口json
 
+```
 {
 
     id: number[]
 
 }
+```
 
 #### 2、测试地址
 
@@ -224,6 +256,7 @@ useCategorySignal.ts
 
 **此api为post**
 
+```
 {
 
     search: string,
@@ -231,6 +264,7 @@ useCategorySignal.ts
     page: number
 
 }
+```
 
 
 
@@ -238,11 +272,13 @@ useCategorySignal.ts
 
 #### 1、接口json
 
+```
 {
 
     sum: number
 
 }
+```
 
 #### 2、测试地址
 
@@ -260,8 +296,48 @@ useCategorySignal.ts
 
 **此api为带查询参数的get**
 
+```
 {
 
     search: string,
 
 }
+```
+
+
+
+### 十、ReadPage调用接口（GetArticleContent）获取某个文章的具体内容
+
+#### 1、接口json(type ArticleApiResponseInter)
+
+```
+{
+
+    content: string
+
+}
+```
+
+#### 2、测试地址
+
+http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleContent
+
+#### 3、正式api地址
+
+apiRBlog.yyluo.cn/
+
+#### 4、文件
+
+useReadPage.ts
+
+#### 5、post的查询参数
+
+**此api为带查询参数的post**
+
+```JSON
+{
+
+    id: number
+
+}
+```

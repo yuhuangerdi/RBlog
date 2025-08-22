@@ -3,6 +3,7 @@ import HomePage from '@/pages/HomePage/HomePage.vue'
 import ArticlePage from '@/pages/ArticlePage/ArticlePage.vue'
 import CategoryAll from '@/pages/ArticlePage/CategoryAll/CategoryAll.vue'
 import CategorySignal from '@/pages/ArticlePage/CategorySignal/CategorySignal.vue'
+import ReadPage from '@/pages/ReadPage/ReadPage.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -30,6 +31,7 @@ const router = createRouter({
         { path: '/archiving', component: HomePage },
         { path: '/about', component: HomePage },
         { path: '/message', component: HomePage },
+        { path: '/reading', component: ReadPage },
     ],
 })
 

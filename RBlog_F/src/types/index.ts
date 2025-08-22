@@ -30,3 +30,18 @@ export interface CategoriesDataInter {
     name: string,
     description: string
 }
+
+export interface ArticleApiResponseInter {
+  content: string;
+  // 可以根据实际API响应添加其他字段
+  // id?: number;
+  // title?: string;
+  // createdAt?: string;
+  // updatedAt?: string;
+}
+
+export interface HeadingInter {
+  id: string;
+  text: string;
+  level: number;
+}

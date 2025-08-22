@@ -26,7 +26,6 @@
     .router-container {
         width: 100%;
         height: 100%;
-        background-color: rgb(0, 140, 255);
         margin-top: 0;
     }
 </style>
