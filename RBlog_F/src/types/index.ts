@@ -14,7 +14,7 @@ export interface ArticleCardDataInter {
     summary: string,
     imgPath: string,
     author: string,
-    tags: string[],
+    tags: string,
     date: string,
 }
 
@@ -44,4 +44,21 @@ export interface HeadingInter {
   id: string;
   text: string;
   level: number;
+}
+
+export interface FeelingInter {
+  title: string;
+  author: string;
+  content: string;
+  date: string;
+  likeCount: number;
+  commentCount: number;
+  comments: string[];
+}
+
+export interface CommentFormInter {
+  nickname: string;
+  email: string;
+  content: string;
+  captcha: string; // 新增验证码字段
 }

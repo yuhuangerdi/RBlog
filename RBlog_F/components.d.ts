@@ -18,6 +18,7 @@ declare module 'vue' {
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElPagination: typeof import('element-plus/es')['ElPagination']
     ElProgress: typeof import('element-plus/es')['ElProgress']
+    FeelingCard: typeof import('./src/components/FeelingCard/FeelingCard.vue')['default']
     Footer: typeof import('./src/components/Footer/Footer.vue')['default']
     GoTop: typeof import('./src/components/GoTop/GoTop.vue')['default']
     HomePage: typeof import('./src/components/HomePage/HomePage.vue')['default']

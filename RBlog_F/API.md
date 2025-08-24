@@ -1,9 +1,5 @@
 # API使用说明
 
-
-
-
-
 ### 一、InfoCard调用接口（InfoCardData）获取博主信息
 
 #### 1、接口json（type InfoCardDataInter）
@@ -38,8 +34,6 @@ apiRBlog.yyluo.cn/
 
 useInfoCard.ts
 
-
-
 ### 二、HomePage main-container调用接口（HomeArticleID）获取首页展示文章ID
 
 #### 1、接口json
@@ -62,9 +56,7 @@ apiRBlog.yyluo.cn/
 
 #### 4、文件
 
-useScrollPage.ts
-
-
+useHomeScrollPage.ts
 
 ### 三、Article Card调用接口（ArticleCardData）接受id后像服务器请求数据
 
@@ -85,7 +77,7 @@ useScrollPage.ts
 
     author: string,
 
-    tags: string[],
+    tags: string,
 
     date: string,
 
@@ -103,8 +95,6 @@ apiRBlog.yyluo.cn/
 #### 4、文件
 
 useArticleCard.ts
-
-
 
 ### 四、topNavigateBar调用接口（ArticleDropdownList）获取文章目录下拉栏
 
@@ -129,8 +119,6 @@ apiRBlog.yyluo.cn/
 #### 4、文件
 
 useTopNavigateBar.ts
-
-
 
 ### 五、SideCard调用接口（SideCard）获取侧边栏信息
 
@@ -162,8 +150,6 @@ apiRBlog.yyluo.cn/
 
 useSideCard.ts
 
-
-
 ### 六、CategoriyAll调用接口（CategoriesData）获取侧边栏信息
 
 #### 1、接口json（type CategoriesDataInter）
@@ -191,8 +177,6 @@ apiRBlog.yyluo.cn/
 #### 4、文件
 
 CategoriyAll.ts
-
-
 
 ### 七、多页面调用接口（PageBannerContent）获取横幅上的文本信息
 
@@ -225,8 +209,6 @@ apiRBlog.yyluo.cn/
 useHomePage.ts
 
 useArticlePage.ts
-
-
 
 ### 八、CategorySignal调用接口（SignalCategotyArticle）获取某类某页文章ID
 
@@ -266,8 +248,6 @@ useCategorySignal.ts
 }
 ```
 
-
-
 ### 九、CategorySignal调用接口（SignalCategotyArticleCount）获取某类文章个数
 
 #### 1、接口json
@@ -303,8 +283,6 @@ useCategorySignal.ts
 
 }
 ```
-
-
 
 ### 十、ReadPage调用接口（GetArticleContent）获取某个文章的具体内容
 

@@ -14,7 +14,7 @@
         <div class = "article-card-footer">
             <span class="article-card-author">{{ articleInfo?.author }} </span>
             <div class="article-card-tags-container">
-                <el-tag class="article-card-tag" type="primary" v-for="t in articleInfo?.tags" :key="t" size = "small" @click.stop="viewTag()">{{ t }}</el-tag>
+                <el-tag class="article-card-tag" type="primary" size = "small" @click.stop="viewTag()">{{ articleInfo?.tags }}</el-tag>
             </div>
             <span class="article-card-date">{{ articleInfo?.date }}</span>
         </div>

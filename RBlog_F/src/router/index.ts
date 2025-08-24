@@ -4,6 +4,7 @@ import ArticlePage from '@/pages/ArticlePage/ArticlePage.vue'
 import CategoryAll from '@/pages/ArticlePage/CategoryAll/CategoryAll.vue'
 import CategorySignal from '@/pages/ArticlePage/CategorySignal/CategorySignal.vue'
 import ReadPage from '@/pages/ReadPage/ReadPage.vue'
+import FeelingPage from '@/pages/FeelingPage/FeelingPage.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -27,7 +28,7 @@ const router = createRouter({
                 { path: 'category/signal', component: CategorySignal },
             ],
         },
-        { path: '/feeling', component: HomePage },
+        { path: '/feeling', component: FeelingPage },
         { path: '/archiving', component: HomePage },
         { path: '/about', component: HomePage },
         { path: '/message', component: HomePage },

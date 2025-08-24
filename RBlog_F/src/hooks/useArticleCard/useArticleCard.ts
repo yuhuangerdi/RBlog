@@ -19,7 +19,7 @@ export default function(articleID:number){
         router.push(`/reading?id=${id}`);
     }
     function viewTag(){
-        alert("Tag");
+        router.push(`/article/category/signal?search=${articleInfo.value?.tags}`);
     }
 
     onMounted(() => {
