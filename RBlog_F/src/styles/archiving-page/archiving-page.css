@@ -1,0 +1,152 @@
+.archiving-page {
+  background-color: #fafafa;
+  min-height: calc(100vh - 60px); /* 减去导航栏高度 */
+  padding: 40px 0 80px;
+  position: relative; /* 新增：为banner绝对定位提供参考 */
+}
+
+/* 新增banner样式 */
+.article-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45vh;
+  background-image: url("../../assets/ArchivingPageBackGround.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* 确保动画元素不会溢出 */
+}
+
+/* 添加背景动画元素 */
+.article-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(100%);
+  animation: bannerReveal 1.5s ease forwards;
+}
+
+/* 新增动画定义 */
+@keyframes bannerReveal {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.banner-content {
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.chinese-text {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.5px;
+}
+
+.english-text {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-top: 45vh; /* 新增：为banner留出空间 */
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+}
+
+.aside-container {
+  position: sticky;
+  top: 30px;
+  align-self: start;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 文章切换动画 */
+.articles-transition-enter-from,
+.articles-transition-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.articles-transition-enter-active,
+.articles-transition-leave-active {
+  transition: all 0.5s ease;
+}
+
+.articles-transition-leave-active {
+  position: absolute;
+}
+
+.no-articles {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  color: #8c8c8c;
+}
+
+.empty-icon {
+  margin-bottom: 16px;
+  color: #e5e5e5;
+}
+
+/* 响应式适配 */
+@media (max-width: 992px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .aside-container {
+    position: static;
+    max-width: 500px;
+    margin: 0 auto 32px;
+  }
+  
+  .chinese-text {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .archiving-page {
+    padding: 30px 0 60px;
+  }
+  
+  .container {
+    padding-top: 40vh;
+  }
+  
+  .chinese-text {
+    font-size: 24px;
+  }
+  
+  .english-text {
+    font-size: 14px;
+  }
+}

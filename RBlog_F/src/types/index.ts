@@ -62,3 +62,8 @@ export interface CommentFormInter {
   content: string;
   captcha: string; // 新增验证码字段
 }
+
+export interface ArchivingDataInter {
+    date: number;
+    id: number[];
+}

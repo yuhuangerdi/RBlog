@@ -307,3 +307,113 @@ apiRBlog.yyluo.cn/
 #### 4、文件
 
 useReadPage.ts
+
+### 十一、FeelingScrollPage调用接口（FeelingCount）获取碎碎念文章数
+
+#### 1、接口json
+
+```
+{
+
+    sum: number
+
+}
+```
+
+#### 2、测试地址
+
+http://127.0.0.1:4523/m1/5985264-5673651-default/api/FeelingCount
+
+#### 3、正式api地址
+
+apiRBlog.yyluo.cn/
+
+#### 4、文件
+
+useFeelingScrollPage.ts
+
+### 十二、FeelingScrollPage调用接口（FeelingCatalogue）获取碎碎念某页的文章ID
+
+#### 1、接口json
+
+```
+{
+
+    id:number[]
+
+}
+```
+
+#### 2、测试地址
+
+http://127.0.0.1:4523/m1/5985264-5673651-default/api/FeelingCount
+
+#### 3、正式api地址
+
+apiRBlog.yyluo.cn/
+
+#### 4、文件
+
+useFeelingScrollPage.ts
+
+#### 5、post的参数
+
+**此api为post**
+
+```
+{
+
+    page: number
+
+}
+```
+
+### 十三、FeelingCard调用接口（FeelingContent）获取碎碎念某的文章详细信息
+
+#### 1、接口json (type FeelingInter )
+
+```
+{
+
+    title: string;
+
+    author: string;
+
+    content: string;
+
+    date: string;
+
+    likeCount: number;
+
+    commentCount: number;
+
+    comments: string[];
+
+}
+```
+
+
+
+#### 2、测试地址
+
+http://127.0.0.1:4523/m1/5985264-5673651-default/api/FeelingContent
+
+#### 3、正式api地址
+
+apiRBlog.yyluo.cn/
+
+#### 4、文件
+
+useFeelingCard.ts
+
+#### 5、get的参数
+
+**此api为带查询参数的get**
+
+```
+{
+
+    id:number
+
+}
+```

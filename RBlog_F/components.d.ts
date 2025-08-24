@@ -8,6 +8,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ArchivingCard: typeof import('./src/components/ArchivingCard/ArchivingCard.vue')['default']
+    ArchivingPositionCard: typeof import('./src/components/ArchivingPositionCard/ArchivingPositionCard.vue')['default']
     ArticleCard: typeof import('./src/components/ArticleCard/ArticleCard.vue')['default']
     ArticleLoadMore: typeof import('./src/components/LoadMore/ArticleLoadMore.vue')['default']
     ArticlePageSideCard: typeof import('./src/components/SideCard/ArticlePageSideCard.vue')['default']
