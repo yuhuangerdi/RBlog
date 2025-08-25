@@ -23,6 +23,7 @@ declare module 'vue' {
     HomeScrollPage: typeof import('./src/components/HomeScrollPage/HomeScrollPage.vue')['default']
     InfoCard: typeof import('./src/components/InfoCard/InfoCard.vue')['default']
     LoadMore: typeof import('./src/components/LoadMore/LoadMore.vue')['default']
+    MessageCard: typeof import('./src/components/MessageCard/MessageCard.vue')['default']
     ReadScrollPage: typeof import('./src/components/ReadScrollPage/ReadScrollPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

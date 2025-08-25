@@ -1,0 +1,9 @@
+.message-scroll-page {
+    width: 100%;
+}
+
+.message-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

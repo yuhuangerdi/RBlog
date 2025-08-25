@@ -21,8 +21,8 @@
         </div>
         <div class="MenuContainer"><router-link class="MenuLink" to="/feeling">碎碎念</router-link></div>
         <div class="MenuContainer"><router-link class="MenuLink" to="/archiving">归档</router-link></div>
-        <div class="MenuContainer"><router-link class="MenuLink" to="/about">关于</router-link></div>
         <div class="MenuContainer"><router-link class="MenuLink" to="/message">留言</router-link></div>
+        <div class="MenuContainer"><router-link class="MenuLink" to="/about">关于</router-link></div>
     </div>
 </template>
 

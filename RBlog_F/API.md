@@ -375,24 +375,22 @@ useFeelingScrollPage.ts
 ```
 {
 
-    title: string;
+    title: string,
 
-    author: string;
+    author: string,
 
-    content: string;
+    content: string,
 
-    date: string;
+    date: string,
 
-    likeCount: number;
+    likeCount: number,
 
-    commentCount: number;
+    commentCount: number,
 
-    comments: string[];
+    comments: string[]
 
 }
 ```
-
-
 
 #### 2、测试地址
 
@@ -417,3 +415,51 @@ useFeelingCard.ts
 
 }
 ```
+
+### 十四、ArchivingPage调用接口（ArchivingData）获取归档文章列表
+
+#### 1、接口json (type ArchivingDataInter[] )
+
+```
+{
+    date: number,
+    id: number[]
+}
+```
+
+#### 2、测试地址
+
+http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArchivingData
+
+#### 3、正式api地址
+
+apiRBlog.yyluo.cn/
+
+#### 4、文件
+
+useArchivingPage.ts
+
+### 十五、AboutPage调用接口（AboutData）获取关于页面的文章
+
+#### 1、接口json (type ArchivingDataInter[] )
+
+```
+{
+    id: number,
+    title: string,
+    content: string,
+    date:string
+}
+```
+
+#### 2、测试地址
+
+http://127.0.0.1:4523/m1/5985264-5673651-default/api/AboutData
+
+#### 3、正式api地址
+
+apiRBlog.yyluo.cn/
+
+#### 4、文件
+
+useAboutPage.ts
