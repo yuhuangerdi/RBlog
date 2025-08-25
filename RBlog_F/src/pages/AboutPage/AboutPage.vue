@@ -18,118 +18,24 @@
   </div>
 </template>
 
+<script lang="ts" > 
+    export default {
+        name: 'AboutPage'
+    }
+</script>
+
 <script lang="ts" setup>
-import { onMounted } from 'vue'
-import AboutArticleCard from '../../components/AboutArticleCard/AboutArticleCard.vue'
-import useAboutPage from '@/hooks/useAboutPage/useAboutPage'
+    import { onMounted } from 'vue'
+    import AboutArticleCard from '../../components/AboutArticleCard/AboutArticleCard.vue'
+    import useAboutPage from '@/hooks/useAboutPage/useAboutPage'
 
-const { aboutArticles, loading, fetchAboutArticles } = useAboutPage()
+    const { aboutArticles, loading, fetchAboutArticles } = useAboutPage()
 
-onMounted(() => {
-  fetchAboutArticles()
-})
+    onMounted(() => {
+        fetchAboutArticles()
+    })
 </script>
 
 <style scoped>
-.about-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
-  min-height: 100vh;
-}
-
-.about-title {
-  text-align: center;
-  margin-bottom: 3rem;
-  color: var(--el-color-primary);
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  position: relative;
-  padding-bottom: 1rem;
-}
-
-.about-title:after {
-  content: '';
-  display: block;
-  width: 100px;
-  height: 4px;
-  background: var(--el-color-primary);
-  margin: 1rem auto 0;
-  border-radius: 2px;
-  transform: scaleX(0.8);
-  transition: transform 0.3s ease;
-}
-
-.about-page:hover .about-title:after {
-  transform: scaleX(1);
-}
-
-.about-content {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  opacity: 0;
-  animation: fadeIn 0.8s ease forwards;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-.about-aboutArticles {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-}
-
-/* 加载动画优化 */
-.loading {
-  text-align: center;
-  padding: 5rem 2rem;
-  color: var(--el-text-color-secondary);
-  font-size: 1.1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.loader {
-  width: 48px;
-  height: 48px;
-  border: 3px solid var(--el-color-primary-light-5);
-  border-bottom-color: var(--el-color-primary);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.error {
-  text-align: center;
-  padding: 2rem;
-  color: var(--el-color-danger);
-  background-color: var(--el-color-danger-light-9);
-  border-radius: 8px;
-  max-width: 600px;
-  margin: 0 auto;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid var(--el-color-danger);
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .about-page {
-    padding: 2.5rem 1rem;
-  }
-  
-  .about-aboutArticles {
-    gap: 2.5rem;
-  }
-}
+    @import "../../styles/about-page/about-page.css";
 </style>

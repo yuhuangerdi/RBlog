@@ -67,3 +67,17 @@ export interface ArchivingDataInter {
     date: number;
     id: number[];
 }
+
+export interface lv1FeelingInter {//一级评论
+    comment:string,
+    nickname:string,
+    email:string,
+    children:Array<lv2FeelingInter>//所有子评论
+}
+
+export interface lv2FeelingInter {//二级评论
+    comment:string,
+    nickname:string,
+    email:string,
+    respondent:string,//回复的谁的评论
+}
