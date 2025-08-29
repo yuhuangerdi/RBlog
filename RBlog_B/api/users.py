@@ -1,14 +1,10 @@
 from fastapi import APIRouter
 
-userRouter = APIRouter()
+from schemas.userSchemas import *
+from services.users import *
 
-@userRouter.get('/admin/infoCard')
-async def getInfoCardData():
-    return{
-        "avatarUrl" : "",
-        "nickname" : "Ryan",
-        "personalSignature" : "凡是过往，皆为序章。",
-        "articleCount" : 564,
-        "categoryCount" : 24,
-        "tagCount" : 321
-    }
+usersRouter = APIRouter()
+
+@usersRouter.get('/admin/infoCard',response_model = infoCardDataRes)
+async def infoCardData():
+    return getInfoCardData()

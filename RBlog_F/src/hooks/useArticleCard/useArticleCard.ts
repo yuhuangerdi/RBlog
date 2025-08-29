@@ -8,7 +8,7 @@ export default function(articleID:number){
     
     async function getArticleInfo() {
         try {
-            let articleInfoResult = await axios.get(`http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleCardData/${articleID}`)
+            let articleInfoResult = await axios.get(`/api/article/articleCard/${articleID}`)
             articleInfo.value = articleInfoResult.data;
         } 
         catch (error) {

@@ -25,6 +25,6 @@
     })
 </script>
 
-<style scoped>
+<style>
     @import "../../styles/about-article-card/about-article-card.css";
 </style>

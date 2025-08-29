@@ -4,7 +4,7 @@ export default function () {
     let content = ref();
 
     async function getHomePageContent() {
-        let homePageContentResult = await axios.get('http://127.0.0.1:4523/m1/5985264-5673651-default/api/PageBannerContent');
+        let homePageContentResult = await axios.get('/api/other/pageBannerContent');
         content.value = homePageContentResult.data.homePage;
     }
 

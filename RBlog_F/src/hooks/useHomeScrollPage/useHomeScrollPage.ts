@@ -20,9 +20,7 @@ export default function() {
         
         try {
             // 假设API支持分页参数
-            const homeArticleIDResult = await axios.get(
-                `http://127.0.0.1:4523/m2/5985264-5673651-default/337094423?page=${page.value}`
-            );
+            const homeArticleIDResult = await axios.get(`/api/article/homeArticleId?page=${page.value}`);
             
             const newIds = homeArticleIDResult.data.homeArticleID || [];
             

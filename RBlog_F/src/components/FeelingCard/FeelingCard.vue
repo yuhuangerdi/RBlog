@@ -13,12 +13,19 @@
 
       <!-- 卡片内容：可折叠的文章内容 -->
       <div class="feeling-detail-content">
-        <p class="feeling-content-text">
-          {{ isExpanded ? feeling?.content : `${feeling?.content.slice(0, 150)}...` }}
-        </p>
-        <span 
-          v-if="feeling?.content.length > 150"
-          class="feeling-content-toggle" 
+        <div
+          class="feeling-content-text"
+          v-if="isExpanded"
+          v-html="parsedContent"
+        ></div>
+        <div
+          class="feeling-content-preview"
+          v-else
+          v-html="parsedPreview"
+        ></div>
+        <span
+          v-if="feeling?.content && feeling.content.length > 150"
+          class="feeling-content-toggle"
           @click="toggleExpand"
         >
           {{ isExpanded ? '收起' : '展开' }}
@@ -113,6 +120,8 @@
     import { Star, Comment, Refresh } from '@element-plus/icons-vue';
     import { ElSkeleton, ElButton, ElIcon, ElInput, ElForm, ElFormItem } from 'element-plus';
     import useFeelingCard from '../../hooks/useFeelingCard/useFeelingCard';
+    import MarkdownIt from 'markdown-it';
+    import { ref, computed, onMounted } from 'vue';
 
     let props = defineProps(['feelingId']);
     const {
@@ -131,8 +140,35 @@
         submitComment,
         toggleExpand,
     } = useFeelingCard(props.feelingId);
+
+    // 创建 markdown 解析器实例
+    const md = new MarkdownIt({
+        html: true,
+        linkify: true,
+        typographer: true
+    });
+
+    // 计算属性：解析 markdown 内容
+    const parsedContent = computed(() => {
+        if (!feeling.value?.content) return '';
+        return md.render(feeling.value.content);
+    });
+
+    // 计算属性：解析后的摘要内容（用于折叠状态）
+    const parsedPreview = computed(() => {
+        if (!feeling.value?.content) return '';
+        
+        // 截取前150个字符作为预览
+        let previewContent = feeling.value.content;
+        if (previewContent.length > 150) {
+            previewContent = previewContent.slice(0, 150) + '...';
+        }
+        
+        // 使用 markdown-it 解析预览内容，保持基本格式
+        return md.render(previewContent);
+    });
 </script>
 
-<style scoped>
+<style>
     @import "../../styles/feeling-card/feeling-card.css";
 </style>

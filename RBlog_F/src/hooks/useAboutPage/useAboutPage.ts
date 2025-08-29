@@ -1,9 +1,17 @@
 import { ref } from 'vue'
 import axios from 'axios'
+import MarkdownIt from 'markdown-it'
 
 export default function () {
   let aboutArticles = ref()
   const loading = ref(false)
+
+  // 创建 markdown 解析器实例
+  const md = new MarkdownIt({
+    html: true,
+    linkify: true,
+    typographer: true
+  })
 
   async function fetchAboutArticles() {
     loading.value = true
@@ -13,9 +21,18 @@ export default function () {
       // aboutArticles.value = response.data
       
       // Mock data
-      let aboutArticlesResult = await axios.get('http://127.0.0.1:4523/m1/5985264-5673651-default/api/AboutData')
-      aboutArticles.value = aboutArticlesResult.data;
-    } 
+      let aboutArticlesResult = await axios.get('/api/about/articleData')
+      
+      // 对获取的数据进行 markdown 解析
+      if (aboutArticlesResult.data.data) {
+        aboutArticles.value = aboutArticlesResult.data.data.map((article: any) => ({
+          ...article,
+          content: md.render(article.content || '')
+        }))
+      } else {
+        aboutArticles.value = aboutArticlesResult.data.data;
+      }
+    }
     finally {
       loading.value = false
     }

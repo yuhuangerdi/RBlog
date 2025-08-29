@@ -9,7 +9,7 @@ export default function() {
     // 获取文章列表数据
     async function getArticleDropdownList(){
         try {
-            let articleDropdownListResult = await axios.get('http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleDropdownList')
+            let articleDropdownListResult = await axios.get('/api/other/articleDropList')
             articleItems.value = articleDropdownListResult.data.articleDropdownList;
         } catch (err) {
             console.error(err)

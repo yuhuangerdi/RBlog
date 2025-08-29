@@ -9,8 +9,7 @@ export default function () {
 
     async function getMessagePageContent() {
         try {
-            let messagePageContentResult = await axios.get('http://127.0.0.1:4523/m1/5985264-5673651-default/api/PageBannerContent');
-            // 如果API返回了消息页面的内容，使用它；否则使用默认值
+            let messagePageContentResult = await axios.get('/api/other/pageBannerContent');
             if (messagePageContentResult.data && messagePageContentResult.data.messagePage) {
                 content.value = messagePageContentResult.data.messagePage;
             }

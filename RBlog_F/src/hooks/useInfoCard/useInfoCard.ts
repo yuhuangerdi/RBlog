@@ -7,7 +7,8 @@ export default function useInfoCard() {
 
     async function getInfo() {
         try {
-            let infoCardResult = await axios.get('http://127.0.0.1:4523/m1/5985264-5673651-default/api/infoCard')
+            //let infoCardResult = await axios.get('/api/user/admin/infoCard')
+            let infoCardResult = await axios.get('/api/users/admin/infoCard')
             Info.value = infoCardResult.data
         } 
         catch (error) {

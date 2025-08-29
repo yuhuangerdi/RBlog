@@ -9,13 +9,13 @@ export default function() {
     let nowFeelingIdArray = ref([]);
 
     async function getFeelingCount() {
-        let feelingCountResult =await axios.get('http://127.0.0.1:4523/m1/5985264-5673651-default/api/FeelingCount');
+        let feelingCountResult =await axios.get('/api/feeling/sum');
         feelingCount.value = feelingCountResult.data.sum;
     }
 
     async function getNowPageFeelingIdArray(){
         let NowPageFeelingIdArrayResult = await axios.post(
-            "http://127.0.0.1:4523/m1/5985264-5673651-default/api/FeelingCatalogue",{
+            "/api/feeling/id",{
                 search:route.query.search,
                 page:nowPage.value
         });

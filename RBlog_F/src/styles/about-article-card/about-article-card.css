@@ -110,3 +110,110 @@
     border-radius: 8px;
   }
 }
+
+/* Markdown 标题样式 */
+.about-article-content h1,
+.about-article-content h2,
+.about-article-content h3,
+.about-article-content h4,
+.about-article-content h5,
+.about-article-content h6 {
+  margin: 24px 0 16px 0;
+  color: var(--el-text-color-primary);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.about-article-content h1 { font-size: 28px; }
+.about-article-content h2 { font-size: 24px; }
+.about-article-content h3 { font-size: 20px; }
+.about-article-content h4 { font-size: 18px; }
+.about-article-content h5 { font-size: 16px; }
+.about-article-content h6 { font-size: 15px; }
+
+/* Markdown 代码块样式 */
+.about-article-content pre {
+  background-color: #f6f8fa;
+  border-radius: 8px;
+  padding: 20px;
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid #e1e4e8;
+}
+
+.about-article-content code {
+  background-color: #f6f8fa;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  color: #24292e;
+}
+
+.about-article-content pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* 链接样式 */
+.about-article-content a {
+  color: var(--el-color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.about-article-content a:hover {
+  color: var(--el-color-primary-light-3);
+  text-decoration: underline;
+}
+
+/* 列表样式 */
+.about-article-content ul,
+.about-article-content ol {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.about-article-content li {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+/* 引用样式 */
+.about-article-content blockquote {
+  border-left: 4px solid var(--el-color-primary);
+  background-color: #f8f9fa;
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--el-text-color-secondary);
+}
+
+/* 表格样式 */
+.about-article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.about-article-content th,
+.about-article-content td {
+  padding: 12px;
+  border: 1px solid #e1e4e8;
+  text-align: left;
+}
+
+.about-article-content th {
+  background-color: #f6f8fa;
+  font-weight: 600;
+}
+
+/* 水平分割线 */
+.about-article-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+  margin: 32px 0;
+}

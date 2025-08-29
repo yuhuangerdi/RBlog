@@ -6,7 +6,7 @@ export default function(){
     let categories = ref<CategoriesDataInter[]>([]);
 
     async function getCategories(){
-        let categoriesResult = await axios.get("http://127.0.0.1:4523/m2/5985264-5673651-default/338676943");
+        let categoriesResult = await axios.get("/api/category/allCategories");
         categories.value = categoriesResult.data.data;
     }
 

@@ -27,7 +27,7 @@ export default function(){
         return (dayOfYear/(isLeap? 366 : 365) * 100).toFixed(2);
     }
     async function getSideCardData(){
-        let sideCardDataResult = await axios.get("http://127.0.0.1:4523/m1/5985264-5673651-default/api/SideCard");
+        let sideCardDataResult = await axios.get("/api/other/sideCard");
         sideCardData.value = sideCardDataResult.data;
     }
 

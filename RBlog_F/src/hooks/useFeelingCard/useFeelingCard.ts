@@ -75,21 +75,16 @@ export default function(id:number) {
 
     // 从API获取数据
     async function fetchFeeling() {
-        let feelingCatalogueResult = await axios.get(`http://127.0.0.1:4523/m1/5985264-5673651-default/api/FeelingContent?id=${id}`)
+        let feelingCatalogueResult = await axios.get(`/api/feeling/content/1`)
         // 这里可以根据实际API返回结构进行调整
         return {
-            title: feelingCatalogueResult.data.title || "现代前端开发中的组件设计原则",
-            author: feelingCatalogueResult.data.author || "张开发",
-            content: feelingCatalogueResult.data.content || "在现代前端开发中，组件化已经成为主流的开发模式...",
-            date: feelingCatalogueResult.data.date || "2023-10-15",
-            likeCount: feelingCatalogueResult.data.likeCount || 245,
-            commentCount: feelingCatalogueResult.data.commentCount || 4,
-            comments: feelingCatalogueResult.data.comments || [
-                "非常赞同作者的观点，单一职责原则确实很重要",
-                "请问如何平衡组件的可复用性和业务特异性呢？",
-                "写得很全面，学习了",
-                "期待后续关于组件测试的详细讲解"
-            ]
+            title: feelingCatalogueResult.data.title,
+            author: feelingCatalogueResult.data.author,
+            content: feelingCatalogueResult.data.content,
+            date: feelingCatalogueResult.data.date,
+            likeCount: feelingCatalogueResult.data.likeCount,
+            commentCount: feelingCatalogueResult.data.commentCount,
+            comments: feelingCatalogueResult.data.comments
         };
     };
 
@@ -108,20 +103,8 @@ export default function(id:number) {
         // 表单验证
         await commentFormRef.value.validate(async (valid) => {
             if (valid) {
-                isSubmitting.value = true;
-                
+                isSubmitting.value = true;    
                 try {
-                    // 从API获取数据并存储到feelingCatalogueResult变量
-                    const response = await fetch('http://127.0.0.1:4523/m1/5985264-5673651-default/api/FeelingCatalogue');
-                    
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    
-                    // 存储获取到的数据
-                    const feelingCatalogueResult = await response.json();
-                    console.log('获取到的目录数据:', feelingCatalogueResult);
-                    
                     // 准备发送到后端的评论数据
                     const commentData = {
                         ...commentForm,

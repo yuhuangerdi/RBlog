@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ref, computed, onBeforeMount } from "vue";
 import { type ArchivingDataInter } from "@/types";
+import { ar } from "element-plus/es/locales.mjs";
 
 export default function() {
     let articleArray = ref<ArchivingDataInter[]>([]);
@@ -33,9 +34,9 @@ export default function() {
     async function getArchivingDate() {
         try {
             const archivingDateResult = await axios.get(
-                "http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArchivingData"
+                "/api/archiving/idList"
             );
-            articleArray.value = archivingDateResult.data;
+            articleArray.value = archivingDateResult.data.data;
             // 数据加载完成后设置默认选中最后一个月份
             if (dateArray.value.length > 0) {
                 selectedDate.value = dateArray.value[dateArray.value.length - 1];
@@ -46,9 +47,8 @@ export default function() {
     }
     async function getBannerContent() {
         const bannerContentResult = await axios.get(
-            "http://127.0.0.1:4523/m1/5985264-5673651-default/api/PageBannerContent"
+            "/api/other/pageBannerContent"
         );
-        console.log(bannerContentResult);
         content.value = bannerContentResult.data.archivingPage;
     }
 

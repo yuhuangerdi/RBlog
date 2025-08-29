@@ -13,7 +13,7 @@ export default function () {
         // 使用Promise.race实现超时控制
         const response = await Promise.race([
             axios.get<ArticleApiResponseInter>(
-            `http://127.0.0.1:4523/m1/5985264-5673651-default/api/ArticleContent?id=${articleId}`),
+            `/api/article/content/${articleId}`),
             new Promise<never>((_, reject) => setTimeout(() => reject(new Error('请求超时')), timeout)),
         ])
 
