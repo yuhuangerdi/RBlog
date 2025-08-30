@@ -15,8 +15,8 @@
 
 <script lang="ts" setup>
     import ArticleCard from "@/components/ArticleCard/ArticleCard.vue";
-import useCategorySignai from "../../../hooks/useArticlePage/useCategorySignal/useCategorySignal.ts"
-    const { articleCount, nowPage, nowArticleIdArray } = useCategorySignai()
+    import useCategorySignal from "../../../hooks/useArticlePage/useCategorySignal/useCategorySignal.ts"
+    const { articleCount, nowPage, nowArticleIdArray } = useCategorySignal()
 </script>
 
 <style scoped>

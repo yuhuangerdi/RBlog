@@ -73,12 +73,21 @@ export interface lv1FeelingInter {
   comment: string
   nickname: string
   email: string
-  children: Array<lv2FeelingInter> //所有子评论
+  children: Array<lv2FeelingInter> //所有二级子评论
   date: string //评论日期
 }
 
 export interface lv2FeelingInter {
   //二级评论
+  comment: string
+  nickname: string
+  email: string
+  children: Array<lv3FeelingInter> //所有三级子评论
+  date: string //评论日期
+}
+
+export interface lv3FeelingInter {
+  //三级评论
   comment: string
   nickname: string
   email: string

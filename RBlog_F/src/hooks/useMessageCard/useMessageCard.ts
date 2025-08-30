@@ -1,14 +1,10 @@
-import { ref, onMounted, reactive } from 'vue';
+import { ref, reactive } from 'vue';
 import { ElMessage } from 'element-plus';
 import type { FormInstance, FormRules } from 'element-plus/es/components/form';
-import type { lv1FeelingInter, lv2FeelingInter, CommentFormInter } from '../../types';
-import axios from 'axios';
+import type { CommentFormInter } from '../../types';
 
 export default function() {
     // 响应式变量定义
-    const messages = ref<lv1FeelingInter[]>([]);
-    const isLoading = ref(true);
-    const error = ref<string | null>(null);
     const isSubmitting = ref(false);
     const messageFormRef = ref<FormInstance | null>(null);
     const replyFormRefs = ref<FormInstance[]>([]);
@@ -93,63 +89,6 @@ export default function() {
         ]
     });
 
-    // 从API获取留言数据
-    async function fetchMessages() {
-        try {
-            isLoading.value = true;
-            // 这里使用模拟数据，实际项目中应该调用API
-            // const response = await axios.get('http://127.0.0.1:4523/m1/5985264-5673651-default/api/Messages');
-            // messages.value = response.data;
-            
-            // 模拟数据
-            messages.value = [
-                {
-                    comment: "这个博客设计得很棒，内容也很丰富！",
-                    nickname: "访客A",
-                    email: "visitorA@example.com",
-                    date: "2024-01-15",
-                    children: [
-                        {
-                            comment: "谢谢夸奖！我会继续努力的~",
-                            nickname: "博主",
-                            email: "blogger@example.com",
-                            respondent: "访客A",
-                            date: "2024-01-15"
-                        },
-                        {
-                            comment: "这个博客的评论系统还不错，可以用来提升评论质量！",
-                            nickname: "访客B",
-                            email: "visitorB@example.com",
-                            respondent: "博主",
-                            date: "2024-01-15"
-                        },
-                        {
-                            comment: "这个博客的评论系统还不错，可以用来提升评论质量！",
-                            nickname: "访客C",
-                            email: "visitorC@example.com",
-                            respondent: "博主",
-                            date: "2024-01-15"
-                        }
-                    ]
-                },
-                {
-                    comment: "请问这个项目是开源的吗？",
-                    nickname: "开发者B",
-                    email: "devB@example.com",
-                    date: "2024-01-14",
-                    children: []
-                }
-            ];
-            
-            error.value = null;
-        } catch (err) {
-            error.value = err instanceof Error ? err.message : "加载留言数据时发生错误";
-            console.error("留言数据获取失败:", err);
-            ElMessage.error('加载留言失败');
-        } finally {
-            isLoading.value = false;
-        }
-    };
 
     // 提交留言
     const submitMessage = async () => {
@@ -232,7 +171,7 @@ export default function() {
 
     // 切换回复区域显示并设置回复对象
     const toggleReply = (index: number, respondent: string = '') => {
-        if (activeReplyIndex.value === index && currentRespondent.value === respondent) {
+        if (activeReplyIndex.value === index) {
             activeReplyIndex.value = null;
             currentRespondent.value = '';
         } else {
@@ -246,16 +185,10 @@ export default function() {
         }
     };
 
-    // 组件挂载时获取数据并生成初始验证码
-    onMounted(async () => {
-        generateCaptcha(); // 生成初始验证码
-        await fetchMessages();
-    });
+    // 组件挂载时生成初始验证码
+    generateCaptcha(); // 生成初始验证码
 
     return{
-        messages,
-        isLoading,
-        error,
         isSubmitting,
         messageFormRef,
         replyFormRefs,
@@ -266,7 +199,6 @@ export default function() {
         generateCaptcha,
         messageRules,
         replyRules,
-        fetchMessages,
         submitMessage,
         submitReply,
         toggleReply,

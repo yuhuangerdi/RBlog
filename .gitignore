@@ -1,2 +1,8 @@
 RBlog_F/API.md
 RBlog_B/.env
+# RBlog_B ignore rules
+RBlog_B/comments/**/*.json
+RBlog_B/static/**/*
+RBlog_B/static/**/
+RBlog_B/content/**/*
+RBlog_B/content/**/

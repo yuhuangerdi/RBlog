@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
 .read-scroll-page {
   background: #fff;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 /* 文章内容样式 */
@@ -27,92 +29,172 @@
 .article-content h2,
 .article-content h3,
 .article-content h4 {
-  margin-top: 1.2em;
-  margin-bottom: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 0.4em;
   font-weight: 600;
-  color: #000; /* 改为黑色 */
+  color: #000;
+  line-height: 1.3;
 }
 
 .article-content h1 {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   border-bottom: 1px solid #eaecef;
   padding-bottom: 0.3em;
 }
 
 .article-content h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   border-bottom: 1px solid #eaecef;
   padding-bottom: 0.3em;
 }
 
 .article-content h3 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 .article-content h4 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .article-content p {
-  margin-bottom: 1em;
+  margin-bottom: 0.8em;
+  line-height: 1.7;
 }
 
-.article-content ul, 
+.article-content ul,
 .article-content ol {
-  margin-bottom: 1em;
-  padding-left: 2em;
+  margin-bottom: 0.8em;
+  padding-left: 1.8em;
+}
+
+.article-content li {
+  margin: 0.3em 0;
+  line-height: 1.6;
 }
 
 .article-content blockquote {
-  margin: 1em 0;
-  padding: 0.5em 1em;
+  margin: 0.8em 0;
+  padding: 0.8em 1em;
   background-color: #f8f9fa;
   border-left: 4px solid #dfe2e5;
   color: #6a737d;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+.article-content blockquote p {
+  margin-bottom: 0.5em;
+}
+
+.article-content blockquote p:last-child {
+  margin-bottom: 0;
 }
 
 .article-content table {
   border-collapse: collapse;
-  margin: 1em 0;
+  margin: 0.8em 0;
   width: 100%;
+  font-size: 0.95em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-.article-content th, 
+.article-content th,
 .article-content td {
-  border: 1px solid #dfe2e5;
-  padding: 0.6em 1em;
+  border: 1px solid #e1e4e8;
+  padding: 0.5em 0.8em;
+  line-height: 1.4;
 }
 
 .article-content th {
-  background-color: #f6f8fa;
+  background: linear-gradient(145deg, #f6f8fa, #eaecef);
   font-weight: 600;
+  color: #24292e;
+}
+
+.article-content tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+.article-content tr:hover {
+  background-color: #f6f8fa;
+}
+
+/* 链接样式优化 */
+.article-content a {
+  color: #0366d6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.article-content a:hover {
+  color: #0556c7;
+  border-bottom-color: #0366d6;
+}
+
+/* 图片样式优化 */
+.article-content img {
+  max-width: 85%;
+  height: auto;
+  display: block;
+  margin: 0.8em auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-content img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 强调文本样式 */
+.article-content strong {
+  color: #24292e;
+  font-weight: 600;
+}
+
+.article-content em {
+  color: #586069;
+  font-style: italic;
+}
+
+/* 分割线样式 */
+.article-content hr {
+  margin: 1.2em 0;
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e1e4e8, transparent);
 }
 
 .code-block {
   position: relative;
-  margin: 0; /* 完全取消上下间距 */
+  margin: 0.5em 0; /* 缩小上下间距 */
   border-radius: 8px;
   overflow: hidden;
   background-color: #1e1e1e; /* VSCode 编辑区底色 */
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
-  transition: box-shadow 0.3s ease;
-  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 1px solid #3a3a3a;
 }
 
 .code-block:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
 }
 
 .code-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6em 1em;
+  padding: 0.5em 1em;
   background-color: #2b2b2b; /* VSCode 标题栏色调 */
   color: #d4d4d4;
-  font-size: 0.85em;
+  font-size: 0.8em;
   border-bottom: 1px solid #3a3a3a;
-  margin: 0; /* 确保header无额外边距 */
+  min-height: 32px;
 }
 
 .language-label {
@@ -120,43 +202,131 @@
   font-weight: 600;
   letter-spacing: 0.5px;
   color: #9cdcfe; /* VSCode 特色淡蓝色标签 */
+  font-size: 0.9em;
 }
 
 .copy-button {
-  background-color: #4b4b4b;
+  background: linear-gradient(145deg, #4b4b4b, #3a3a3a);
   color: #ffffff;
   border: none;
-  padding: 0.35em 0.8em;
+  padding: 0.3em 0.7em;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.85em;
+  font-size: 0.8em;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 0.3em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .copy-button:hover {
-  background-color: #569cd6;
+  background: linear-gradient(145deg, #569cd6, #4a8bc9);
   transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .copy-button:active {
   transform: translateY(0);
-  background-color: #4184c7;
+  background: linear-gradient(145deg, #4184c7, #3676b8);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .code-block pre {
-  margin: 0; /* 取消pre的margin，使其紧贴header */
-  padding: 1em;
+  margin: 0;
+  padding: 0.8em;
   overflow: auto;
-  border: none; /* 确保无额外边框 */
+  border: none;
+  background-color: #1e1e1e;
+  max-height: 400px;
+}
+
+.code-block pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-block pre::-webkit-scrollbar-track {
+  background: #2b2b2b;
+  border-radius: 4px;
+}
+
+.code-block pre::-webkit-scrollbar-thumb {
+  background: #4b4b4b;
+  border-radius: 4px;
+}
+
+.code-block pre::-webkit-scrollbar-thumb:hover {
+  background: #569cd6;
 }
 
 .code-block code {
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-  font-size: 0.92em;
-  line-height: 1.6;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85em;
+  line-height: 1.5;
   color: #d4d4d4;
   tab-size: 2;
+  font-feature-settings: 'calt' 1;
+}
+
+/* 代码块周围的段落间距优化 */
+.article-content p + .code-block,
+.article-content ul + .code-block,
+.article-content ol + .code-block,
+.article-content blockquote + .code-block {
+  margin-top: 0.3em;
+}
+
+.code-block + p,
+.code-block + ul,
+.code-block + ol,
+.code-block + blockquote {
+  margin-top: 0.8em;
+}
+
+/* 行内代码样式 */
+.article-content code:not(.hljs) {
+  background-color: #f6f8fa;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: #e01e5a;
+  border: 1px solid #e1e4e8;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+}
+
+/* 代码高亮优化 */
+.hljs-comment,
+.hljs-quote {
+  color: #6a9955;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #569cd6;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #b5cea8;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #ce9178;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #d7ba7d;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #4ec9b0;
 }

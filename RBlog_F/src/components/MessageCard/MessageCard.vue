@@ -50,7 +50,7 @@
     <!-- 评论列表 -->
     <div class="message-comments">
       <h4 class="comments-title">留言</h4>
-      <div v-if="messages.length === 0" class="no-messages">
+      <div v-if="!messages || messages.length === 0" class="no-messages">
         暂无留言，快来抢沙发吧~
       </div>
       
@@ -64,7 +64,7 @@
         
         <!-- 回复按钮 -->
         <button class="reply-btn" @click="toggleReply(index, message.nickname)">
-          {{ activeReplyIndex === index && currentRespondent === message.nickname ? '取消回复' : '回复' }}
+          {{ activeReplyIndex === index ? '取消回复' : '回复' }}
         </button>
         
         <!-- 回复输入区域 -->
@@ -118,7 +118,6 @@
           <div class="comment-item lv2" v-for="(child, childIndex) in message.children" :key="childIndex">
             <div class="comment-header">
               <span class="comment-author">{{ child.nickname }}</span>
-              <span class="reply-to">回复 @{{ child.respondent }}</span>
               <!-- 二级评论回复按钮 -->
               <button class="reply-btn lv2-reply-btn" @click="toggleReply(index, child.nickname)">
                 回复
@@ -126,6 +125,22 @@
               <span class="comment-date">{{ child.date }}</span>
             </div>
             <p class="comment-content">{{ child.comment }}</p>
+            
+            <!-- 三级评论列表 -->
+            <div class="lv3-comments" v-if="child.children && child.children.length > 0">
+              <div class="comment-item lv3" v-for="(grandchild, grandchildIndex) in child.children" :key="grandchildIndex">
+                <div class="comment-header">
+                  <span class="comment-author">{{ grandchild.nickname }}</span>
+                  <span class="reply-to">回复 @{{ grandchild.respondent }}</span>
+                  <!-- 三级评论回复按钮 -->
+                  <button class="reply-btn lv3-reply-btn" @click="toggleReply(index, grandchild.nickname)">
+                    回复
+                  </button>
+                  <span class="comment-date">{{ grandchild.date }}</span>
+                </div>
+                <p class="comment-content">{{ grandchild.comment }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -144,8 +159,11 @@
     import { ElSkeleton, ElButton, ElIcon, ElInput, ElForm, ElFormItem } from 'element-plus';
     import useMessageCard from '../../hooks/useMessageCard/useMessageCard';
 
+    const props = defineProps<{
+        messages?: any[]
+    }>();
+
     const {
-        messages,
         isSubmitting,
         messageFormRef,
         replyFormRefs,
@@ -156,7 +174,6 @@
         generateCaptcha,
         messageRules,
         replyRules,
-        fetchMessages,
         submitMessage,
         submitReply,
         toggleReply,

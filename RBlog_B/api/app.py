@@ -10,6 +10,7 @@ from api.categoriy import categoryRouter
 from api.feeling import feelingRouter
 from api.archiving import archivingRouter
 from api.about import aboutRouter
+from api.message import messageRouter
 
 app = FastAPI()
 app.add_middleware(
@@ -28,6 +29,7 @@ app.include_router(categoryRouter, prefix="/category")
 app.include_router(feelingRouter, prefix="/feeling")
 app.include_router(archivingRouter, prefix="/archiving")
 app.include_router(aboutRouter, prefix="/about")
+app.include_router(messageRouter, prefix="/message")
 
 @app.get("/")
 async def root():
