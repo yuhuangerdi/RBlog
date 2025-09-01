@@ -1,9 +1,15 @@
+import os
 from utils.markdownRead import readMdFile
 
+def getAboutCount():
+    all_files = [f for f in os.listdir("./content/about") if f.endswith('.md')]
+    AboutSum = len(all_files)
+    return AboutSum
+
 def getAboutData():
-    aboutArticleCount = 3       # 实际上应该从数据库获取
+    aboutArticleCount = getAboutCount()
     aboutArticleArr = []
-    for i in range(1, aboutArticleCount+1):         # 实际上应该从数据库获取
+    for i in range(1, aboutArticleCount+1):
         aboutArticleArr.append({
             "id": i,
             "title": "这个网站",

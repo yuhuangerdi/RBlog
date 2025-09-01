@@ -21,9 +21,7 @@ export default function () {
       let nowPageMessageArrayResult = await axios.get(
         `/api/message/comments/content/${nowPage.value}`,
       )
-      console.log('当前页留言API响应:', nowPageMessageArrayResult.data)
       nowMessageArray.value = nowPageMessageArrayResult.data.comments
-      console.log('设置的nowMessageArray:', nowMessageArray.value)
     } catch (error) {
       console.error('获取当前页留言失败:', error)
       nowMessageArray.value = []

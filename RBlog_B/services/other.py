@@ -6,7 +6,7 @@ def getArticleDropList():
 def getSideCard():
     return{
         "saying": "纵有千古，横有八荒；前途似海，来日方长。",
-        "operationDays": 12,
+        "operationDays": 12,        #不储存数据库了，在python实现
         "visitorCount": 1234,
         "readingCount": 67323
     }

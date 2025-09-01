@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     DB_PORT:int = int(os.getenv("DB_PORT", 3306))
     DB_USER:str = os.getenv("DB_USER", "root")
     DB_PASSWORD:str = os.getenv("DB_PASSWORD", "")
-    DB_DATABASE:str = os.getenv("DB_NAME", os.getenv("DB_DATABASE", ""))
+    DB_NAME:str = os.getenv("DB_NAME", os.getenv("DB_NAME", ""))
 
     # 常数配置
     # home页一次加载文章个数

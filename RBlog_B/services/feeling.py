@@ -1,10 +1,11 @@
+import os
 from core.config import settings
 from utils.markdownRead import readMdFile
 
 def getFeelingCount():
-    return{
-        "sum": 134
-    }
+    all_files = [f for f in os.listdir("./content/feeling") if f.endswith('.md')]
+    feelingSum = len(all_files)
+    return {"sum": feelingSum}
 
 def getFeelingArticleIdByPage(page: int):
     idArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 1452, 127, 523, 53, 2135, 516, 2135, 1346, 161, 1265, 1235, 126, 1235, 61, 84, 7435, 243, 2153, 73, 1243]
