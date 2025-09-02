@@ -1,8 +1,6 @@
 RBlog_F/API.md
 RBlog_B/.env
-# RBlog_B ignore rules
-RBlog_B/comments/**/*.json
+# RBlog_B ignore rules - 忽略所有非文件夹内容
 RBlog_B/static/**/*
-RBlog_B/static/**/
+RBlog_B/comments/**/*
 RBlog_B/content/**/*
-RBlog_B/content/**/
