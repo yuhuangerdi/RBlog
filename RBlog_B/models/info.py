@@ -2,7 +2,6 @@ from peewee import IntegerField, CharField
 from models.base import BaseModel
 
 class Info(BaseModel):
-    """个人信息表模型"""
     
     id = IntegerField(primary_key=True)
     avatar_url = CharField(max_length=255, null=True, default="")

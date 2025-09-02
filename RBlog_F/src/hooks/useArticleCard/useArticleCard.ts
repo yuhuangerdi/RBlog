@@ -10,6 +10,7 @@ export default function(articleID:number){
         try {
             let articleInfoResult = await axios.get(`/api/article/articleCard/${articleID}`)
             articleInfo.value = articleInfoResult.data;
+            console.log(articleInfo);
         } 
         catch (error) {
             alert(error);

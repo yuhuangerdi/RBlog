@@ -6,7 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from api.users import usersRouter
 from api.article import articleRouter
 from api.other import otherRouter
-from api.categoriy import categoryRouter
+from api.category import categoryRouter
 from api.feeling import feelingRouter
 from api.archiving import archivingRouter
 from api.about import aboutRouter

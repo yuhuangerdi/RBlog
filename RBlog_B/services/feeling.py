@@ -1,6 +1,8 @@
 import os
 from core.config import settings
 from utils.markdownRead import readMdFile
+from models.feeling import Feeling
+from utils.commentServerToFrontendFeeling import processFeelingComment
 
 def getFeelingCount():
     all_files = [f for f in os.listdir("./content/feeling") if f.endswith('.md')]
@@ -8,24 +10,26 @@ def getFeelingCount():
     return {"sum": feelingSum}
 
 def getFeelingArticleIdByPage(page: int):
-    idArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 1452, 127, 523, 53, 2135, 516, 2135, 1346, 161, 1265, 1235, 126, 1235, 61, 84, 7435, 243, 2153, 73, 1243]
+    result = Feeling.select()
+    idArray = []
+    for i in result:
+        idArray.append(i.id)
+    idArray.reverse()
     nowArray = idArray[(page - 1) * settings.CATEGORY_SIGNAL_ARTICLE_NUMBER_PER_PAGE:page * settings.CATEGORY_SIGNAL_ARTICLE_NUMBER_PER_PAGE]  # 前端feelingPage页一页十篇文章
+    print(nowArray)
     return {
         "id": nowArray
     }
 
 def getFeelingContent(id: int):
-    filePath = f"./content/about/{id}.md"
+    feelingContent = Feeling.select().where(Feeling.id == id).first()
+    filePath = f"./content/feeling/{id}.md"
     return {
-        "title": "title",
-        "author": "author",
+        "title": feelingContent.title,
+        "author": feelingContent.author,
         "content": readMdFile(filePath),
-        "date": "2021-09-09",
-        "likeCount": 423,
-        "commentCount": 4632,
-        "comments": [
-            "The article is useful!",
-            "What a nice article!",
-            "Author u are NB"
-        ]
+        "date": feelingContent.author,
+        "likeCount": feelingContent.star_count,
+        "commentCount": feelingContent.comment_count,
+        "comments": processFeelingComment(f"./comments/feeling/{id}.json")
     }

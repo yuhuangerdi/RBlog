@@ -1,5 +1,6 @@
 import os
 from utils.markdownRead import readMdFile
+from models.about import About
 
 def getAboutCount():
     all_files = [f for f in os.listdir("./content/about") if f.endswith('.md')]
@@ -7,14 +8,14 @@ def getAboutCount():
     return AboutSum
 
 def getAboutData():
-    aboutArticleCount = getAboutCount()
+    result = About.select()
     aboutArticleArr = []
-    for i in range(1, aboutArticleCount+1):
+    for i in result:
         aboutArticleArr.append({
-            "id": i,
-            "title": "这个网站",
-            "content": readMdFile(f"./content/about/{i}.md"),
-            "date": f"2021-9-{i}"
+            "id": i.id,
+            "title": i.title,
+            "content": readMdFile(f"./content/about/{i.id}.md"),
+            "date": i.pub_date.strftime("%Y-%m-%d")
         })
     return {
         "data":aboutArticleArr

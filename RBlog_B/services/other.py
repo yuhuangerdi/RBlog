@@ -1,37 +1,55 @@
+from datetime import date,datetime
+from core.config import settings
+from models.droplist import Droplist
+from models.side_card_saying import SideCardSaying
+from models.side_card import SideCard
+from models.page_banner_content import PageBannerContent
+
 def getArticleDropList():
+    result = Droplist.select().where(Droplist.belong == "article")
+    articleDropList = []
+    for i in result:
+        articleDropList.append(i.content)
     return{
-        "articleDropdownList": ["C","Java","Vue.js","React","FastAPI"]
+        "articleDropdownList": articleDropList
     }
 
 def getSideCard():
+    operationDay = settings.OPERATION_DATE
+    todayDate = date.today()
+    dateDiff = (todayDate-operationDay).days
+    todayWeekday = datetime.today().weekday() + 1
+    saying = SideCardSaying.select().where(SideCardSaying.id == todayWeekday).first()
+    count = SideCard.select().where(SideCard.id == 1).first()
+    print()
     return{
-        "saying": "纵有千古，横有八荒；前途似海，来日方长。",
-        "operationDays": 12,        #不储存数据库了，在python实现
-        "visitorCount": 1234,
-        "readingCount": 67323
+        "saying": saying.saying,
+        "operationDays": dateDiff,
+        "visitorCount": count.visitor_count,
+        "readingCount": count.reading_count
     }
 
 def getPageBannerContent():
+    banner = PageBannerContent.select()
     return{
         "homePage": {
-            "contentCN": "人生如逆旅，我亦是行人",
-            "contentEN": "Life's a rugged loop, I'm but a coder in it."
+            "contentCN": banner[0].CN,
+            "contentEN": banner[0].EN
         },
         "articlePage":{
-            "contentCN": "且将新火试新茶，诗酒趁年华",
-            "contentEN": "We young, so we can  làng"
+            "contentCN": banner[1].CN,
+            "contentEN": banner[1].EN
         },
         "feelingPage": {
-            "contentCN": "风一更，雪一更，聒碎乡心梦不成，故园无此声",
-            "contentEN": "Bugs press on, logs pile on, dreams unspun. I just miss home. Never such a racket, not one."
+            "contentCN": banner[2].CN,
+            "contentEN": banner[2].EN
         },
         "archivingPage": {
-            "contentCN": "流光容易把人抛，红了樱桃，绿了芭蕉",
-            "contentEN": "Time glides by, reddening cherries, greening plantains."
+            "contentCN": banner[3].CN,
+            "contentEN": banner[3].EN
         },
         "messagePage": {
-            "contentCN": "青山一道同云雨，明月何曾是两乡",
-            "contentEN": "Beneath the same mountains, we share rain and cloud; Under the same bright moon, how can we be in two worlds?"
+            "contentCN": banner[4].CN,
+            "contentEN": banner[4].EN
         }
     }
-

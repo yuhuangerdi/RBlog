@@ -1,5 +1,7 @@
 import os
+from datetime import datetime,date
 from dotenv import load_dotenv
+from typing import ClassVar
 from pydantic_settings import BaseSettings
 
 load_dotenv()
@@ -23,5 +25,8 @@ class Settings(BaseSettings):
     HOME_PAGE_ARTICLE_NUMBER_PER_PAGE:int = os.getenv("HOME_PAGE_ARTICLE_NUMBER_PER_PAGE",5)
     # categorySignal页一页展示文章个数
     CATEGORY_SIGNAL_ARTICLE_NUMBER_PER_PAGE:int = os.getenv("CATEGORY_SIGNAL_ARTICLE_NUMBER_PER_PAGE",10)
+    # blog正式运营日期
+    OPERATION_DATE:ClassVar[date]= datetime.strptime(os.getenv('OPERATION_DATE',2025-10-1), '%Y-%m-%d').date()
+
 
 settings = Settings()        # 实例化配置类

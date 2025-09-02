@@ -1,4 +1,4 @@
-from utils.commentServerToFrontend import processLv1Comment
+from utils.commentServerToFrontendMessage import processLv1Comment
 import os
 
 def getMessageComments(page):

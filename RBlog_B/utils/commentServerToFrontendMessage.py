@@ -1,6 +1,5 @@
 #用于将服务器储存的评论转化为发给前端的
 import json
-from typing import List
 
 def processLv1Comment(filePath:str):
     with open(filePath,"r",encoding="utf-8") as file:

@@ -9,7 +9,7 @@
                 <p>Ryan 版权所有</p>
             </div>
             <div class="powered-by">
-                <p>powered by: Vue.js</p>
+                <p>powered by: Vue.js FastAPI Peewee</p>
             </div>
             <div class="license" @click="alertCC">
                 <p>知识共享许可协议：CC-BY-NC-SA</p>
