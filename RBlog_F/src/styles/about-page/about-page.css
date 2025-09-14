@@ -98,4 +98,9 @@
   .about-aboutArticles {
     gap: 2.5rem;
   }
+
+  .about-page{
+    max-width: 80%;
+    width: 80%;
+  }
 }

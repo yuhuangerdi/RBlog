@@ -110,9 +110,10 @@
   width: 100%;
   display: flex;
   justify-content: center; /* 水平居中内容 */
-  gap: 3%; /* 侧边栏与主内容的间距 */
+  gap: 2%; /* 减少侧边栏与主内容的间距 */
   padding: 2rem 0; /* 上下留白，避免内容紧贴首屏底部 */
   box-sizing: border-box;
+
 }
 
 /* 原有样式调整 */
@@ -121,7 +122,7 @@
 }
 
 .aside-container {
-  width: 18%;
+  width: 18%; /* 稍微增加侧边栏宽度，保持整体平衡 */
   position: sticky;
   top: 6vh; /* 滚动时固定在顶部下方的位置（保持不变） */
   align-self: flex-start; /* 与 main-container 顶部对齐作为基准 */
@@ -130,7 +131,6 @@
   margin-top: 20vh; /* 30%视口高度的初始偏移 */
   /* 添加过渡效果，使滚动时的位置变化更平滑 */
   transition: margin-top 0.3s ease;
-
 }
 
 
@@ -138,22 +138,88 @@
   width: 52%;
   min-height: 1500px; /* 测试用高度，实际由内容决定 */
   padding: 2rem;
+
 }
 
 /* 响应式调整：小屏幕首屏文字缩小，内容垂直排列 */
 @media (max-width: 768px) {
+  .hero-section {
+    min-height: 70vh; /* 移动端进一步减少高度 */
+    background-attachment: scroll; /* 移动端取消固定背景 */
+    
+  }
+  
   .hero-title {
     font-size: 2rem;
+    margin-bottom: 0.8rem;
   }
+  
   .hero-desc {
     font-size: 1rem;
+    max-width: 90%;
+    margin: 0 auto;
   }
+  
+  .hero-content .el-icon {
+    font-size: 2rem;
+    margin-bottom: 2vh;
+  }
+  
   .content-wrapper {
     flex-direction: column;
-    padding: 1rem;
+    padding: 0;
     gap: 1rem;
   }
+  
   .aside-container, .main-container {
     width: 100%;
+  }
+  
+  /* 移动端隐藏InfoCard */
+  .aside-container {
+    display: none;
+  }
+  
+  /* 移动端主容器优化 */
+  .main-container {
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+}
+
+/* 小屏幕手机优化 */
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 60vh; /* 小屏幕进一步减少高度 */
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-desc {
+    font-size: 0.9rem;
+  }
+  
+  .hero-content .el-icon {
+    font-size: 1.8rem;
+  }
+  
+  .hero-content {
+    padding: 0 16px;
+    transform: translateY(-5vh); /* 移动端调整垂直位置 */
+  }
+  
+  /* 小屏幕主容器进一步优化 */
+  .main-container {
+    padding: 1rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 375px) {
+  .main-container {
+    padding: 0.8rem;
   }
 }

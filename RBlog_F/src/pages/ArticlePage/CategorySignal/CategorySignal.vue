@@ -1,6 +1,6 @@
 <template>
     <div class = "category-signal">
-        <ArticleCard v-for="arti in nowArticleIdArray" :key="arti" :articleID="arti">{{ arti }}</ArticleCard>
+        <ArticleCard class="article-caard" v-for="arti in nowArticleIdArray" :key="arti" :articleID="arti">{{ arti }}</ArticleCard>
         <div class="pagination-block">
             <el-pagination layout="prev, pager, next" :total="articleCount" v-model:current-page="nowPage"/>
         </div>

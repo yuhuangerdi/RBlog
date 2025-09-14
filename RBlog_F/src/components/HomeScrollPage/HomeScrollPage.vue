@@ -1,6 +1,7 @@
 <template>
     <div class="home-scroll-page">
         <ArticleCard 
+            class="article-card"
             v-for="arti in homeArticleID" 
             :key="arti" 
             :articleID="arti"

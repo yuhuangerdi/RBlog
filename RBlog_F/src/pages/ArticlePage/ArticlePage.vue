@@ -9,7 +9,7 @@
         </div>
         
         <div class="aside-container container">
-            <SideCard></SideCard>
+            <SideCard ></SideCard>
         </div>
         <div class="main-container container">
             <router-view></router-view>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <GoTop></GoTop>
-        <TopNavigateBar></TopNavigateBar>
+        <TopNavigateBar class="top-navigate-bar"></TopNavigateBar>
         <div class="router-container">
             <router-view></router-view>
         </div>
@@ -24,8 +24,9 @@
 
 <style scoped>
     .router-container {
-        width: 100%;
         height: 100%;
         margin-top: 0;
+        margin: 0;
+        padding: 0;
     }
 </style>

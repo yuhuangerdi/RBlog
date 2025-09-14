@@ -72,6 +72,12 @@
 }
 
 /* 响应式调整（小屏幕优化） */
+@media(max-width:1024px) {
+    .feeling-card{
+        max-width: 90%;
+    }
+}
+
 @media (max-width: 480px) {
   ::v-deep .el-pagination__item {
     width: 32px;

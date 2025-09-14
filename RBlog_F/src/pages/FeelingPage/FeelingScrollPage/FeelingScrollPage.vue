@@ -1,6 +1,6 @@
 <template>
     <div class = "category-signal">
-        <FeelingCard v-for="feelingId in nowFeelingIdArray" :key="feelingId" :feelingId="feelingId"></FeelingCard>
+        <FeelingCard class="feeling-card" v-for="feelingId in nowFeelingIdArray" :key="feelingId" :feelingId="feelingId"></FeelingCard>
         <div class="pagination-block">
             <el-pagination layout="prev, pager, next" :total="feelingCount" v-model:current-page="nowPage"/>
         </div>

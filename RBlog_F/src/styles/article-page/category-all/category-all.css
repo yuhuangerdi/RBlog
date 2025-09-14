@@ -6,3 +6,10 @@
     padding: 10px 0;
     box-sizing: border-box;
 }
+
+@media(max-width:1024px){
+    .category-card{
+        width: 80%;
+        margin-left: 10%;
+    }
+}

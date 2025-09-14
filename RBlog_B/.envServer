@@ -1,0 +1,31 @@
+# .env文件示例
+
+# -------------------1、项目基础配置-------------------
+# 环境标识
+ENVIRONMENT=dev
+# FastApi debug模式
+DEBUG=False
+# API主机
+API_HOST=0.0.0.0
+# API端口
+API_PORT=8890
+
+# -------------------2、数据库配置---------------------
+# 数据库主机
+DB_HOST=localhost
+# 数据库端口
+DB_PORT=3306
+# 数据库用户名
+DB_USER=root
+# 数据库密码
+DB_PASSWORD=lyy.2852698
+# 数据库名称
+DB_NAME=rblog
+
+# -------------------3、常数配置---------------------
+# home页一次加载文章个数
+HOME_PAGE_ARTICLE_NUMBER_PER_PAGE=5
+# categorySignal页一页展示文章个数
+CATEGORY_SIGNAL_ARTICLE_NUMBER_PER_PAGE=10
+# blog正式运营日期
+OPERATION_DATE=2025-9-3

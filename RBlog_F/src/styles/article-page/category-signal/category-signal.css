@@ -88,4 +88,8 @@
   .pagination-block {
     margin-top: 1.5rem;
   }
+
+  .article-card{
+    width: 100%;
+  }
 }

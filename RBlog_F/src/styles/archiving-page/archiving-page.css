@@ -133,13 +133,14 @@
   }
 }
 
-@media (max-width: 640px) {
-  .archiving-page {
-    padding: 30px 0 60px;
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .aside-container {
+    display: none; /* 移动端隐藏ArchivingPositionCard */
   }
   
-  .container {
-    padding-top: 40vh;
+  .content-grid {
+    gap: 16px;
   }
   
   .chinese-text {
@@ -148,5 +149,55 @@
   
   .english-text {
     font-size: 14px;
+  }
+  
+  .container {
+    padding-top: 35vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .archiving-page {
+    padding: 20px 0 40px;
+  }
+  
+  .container {
+    padding-top: 35vh;
+  }
+  
+  .chinese-text {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  
+  .english-text {
+    font-size: 13px;
+  }
+  
+  .article-banner {
+    height: 30vh; /* 进一步减小移动端banner高度 */
+  }
+  
+  .banner-content {
+    padding: 0 16px;
+  }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 375px) {
+  .chinese-text {
+    font-size: 20px;
+  }
+  
+  .english-text {
+    font-size: 12px;
+  }
+  
+  .article-banner {
+    height: 28vh;
+  }
+  
+  .container {
+    padding-top: 32vh;
   }
 }

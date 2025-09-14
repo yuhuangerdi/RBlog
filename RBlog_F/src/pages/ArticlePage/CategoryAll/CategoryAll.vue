@@ -2,6 +2,7 @@
   <div class="category-card-list">
     <!-- 循环渲染多个卡片 -->
     <CategoryCard
+      class="category-card"
       v-for="(item, index) in categories" 
       :key="index" 
       :category="item" 

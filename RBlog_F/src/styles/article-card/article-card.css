@@ -147,6 +147,9 @@
 
 /* 响应式调整 */
 @media (max-width: 992px) {
+    .article-card{
+        max-width: 100%;
+    }
     .article-card-content {
         flex-direction: column;
     }
@@ -158,21 +161,144 @@
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+    .article-card {
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+    
     .article-card-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        margin-bottom: 14px;
+        padding-bottom: 10px;
     }
-
-    .article-card-header > div:last-child {
-        width: 100%;
-        justify-content: flex-start; /* 小屏幕统计项左对齐，避免孤立 */
-        margin-top: 4px;
-    }
-
+    
     .article-card-title {
+        font-size: 16px;
         max-width: 100%;
         white-space: normal;
+        line-height: 1.4;
+    }
+    
+    .article-card-content {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    
+    .article-card-image {
+        width: 100%;
+        height: auto;
+        max-height: 180px;
+        order: -1; /* 移动端图片在上方 */
+    }
+    
+    .article-card-summary {
+        font-size: 13px;
+        -webkit-line-clamp: 3; /* 移动端显示3行 */
+        line-height: 1.5;
+    }
+    
+    .article-card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding-top: 10px;
+    }
+    
+    .article-card-author,
+    .article-card-tags-container,
+    .article-card-date {
+        width: 100%;
+        text-align: left;
+    }
+    
+    .article-card-tags-container {
+        transform: none;
+        margin: 4px 0;
+    }
+    
+    .article-card-tag {
+        margin-right: 8px;
+        margin-bottom: 4px;
+    }
+    
+    .article-card-header > div:last-child {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 6px;
+    }
+    
+    .article-comment-count,
+    .article-view-count {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-card {
+        padding: 16px;
+        margin-bottom: 16px;
+        border-radius: 8px;
+    }
+    
+    .article-card-header {
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
+    
+    .article-card-title {
+        font-size: 15px;
+    }
+    
+    .article-card-summary {
+        font-size: 12px;
+        -webkit-line-clamp: 2; /* 超小屏幕显示2行 */
+    }
+    
+    .article-card-image {
+        max-height: 150px;
+    }
+    
+    .article-card-footer {
+        font-size: 12px;
+    }
+    
+    .article-comment-count,
+    .article-view-count {
+        font-size: 12px;
+    }
+    
+    .article-card-tag {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 375px) {
+    .article-card {
+        padding: 12px;
+    }
+    
+    .article-card-title {
+        font-size: 14px;
+    }
+    
+    .article-card-summary {
+        -webkit-line-clamp: 2;
+        line-height: 1.4;
+    }
+    
+    .article-card-image {
+        max-height: 120px;
+    }
+    
+    .article-card-footer {
+        gap: 4px;
+    }
+    
+    .article-card-author,
+    .article-card-date {
+        font-size: 11px;
     }
 }

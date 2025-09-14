@@ -123,12 +123,80 @@
   cursor: pointer;
 }
 
-@media (max-width: 480px) {
-  .text-container p {
-    font-size: 0.82rem;
+@media (max-width: 768px) {
+  .footer {
+    height: auto;
+    padding: 20px 16px;
   }
 
+  .text-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .text-container > div {
+    margin-bottom: 8px;
+  }
+
+  .text-container p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .pic-container img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
   .footer {
-    padding: 25px 10px;
+    padding: 16px 12px;
+  }
+
+  .text-container {
+    gap: 10px;
+  }
+
+  .text-container p {
+    font-size: 0.8rem;
+  }
+
+  .pic-container img {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* 移动端隐藏部分不重要的信息 */
+  .license,
+  .text-container > div:last-child {
+    display: none;
+  }
+
+  /* 简化版权信息显示 */
+  .EN-copyright p,
+  .CN-copyright p {
+    font-size: 0.78rem;
+  }
+
+  .powered-by p {
+    font-size: 0.8rem;
+  }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 360px) {
+  .footer {
+    padding: 12px 8px;
+  }
+
+  .text-container p {
+    font-size: 0.75rem;
+  }
+
+  .pic-container img {
+    width: 32px;
+    height: 32px;
   }
 }
