@@ -31,6 +31,9 @@ def getSideCard():
 
 def getPageBannerContent():
     banner = PageBannerContent.select()
+    sideCardRes = SideCard.get(SideCard.id == 1)
+    sideCardRes.visitor_count = sideCardRes.visitor_count+1
+    sideCardRes.save(only=[SideCard.visitor_count])
     return{
         "homePage": {
             "contentCN": banner[0].CN,

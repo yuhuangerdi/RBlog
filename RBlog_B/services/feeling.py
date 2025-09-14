@@ -28,7 +28,7 @@ def getFeelingContent(id: int):
         "title": feelingContent.title,
         "author": feelingContent.author,
         "content": readMdFile(filePath),
-        "date": feelingContent.author,
+        "date": feelingContent.pub_date.strftime("%Y-%m-%d"),
         "likeCount": feelingContent.star_count,
         "commentCount": feelingContent.comment_count,
         "comments": processFeelingComment(f"./comments/feeling/{id}.json")

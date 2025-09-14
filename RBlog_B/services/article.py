@@ -16,11 +16,11 @@ def getHomeArticleIdByPage(page: int):
 def getArticleCardData(id: int):
     articleCardData = Article.select().where(Article.id == id).first()
     return{
-        "title": articleCardData.title+str(id),
+        "title": articleCardData.title,
         "commentCount": articleCardData.comment_count,
         "viewCount": articleCardData.view_count,
         "summary": articleCardData.summary,
-        "imgPath": f"http://{settings.API_HOST}:{settings.API_PORT}/static/picture/article/{id}/0.png",
+        "imgPath": f"https://{settings.API_HOST}:{settings.API_PORT}/static/picture/article/{id}/0.png",
         "author": articleCardData.author,
         "tags": articleCardData.tag,
         "data": articleCardData.pub_date.strftime("%Y-%m-%d")
@@ -28,6 +28,9 @@ def getArticleCardData(id: int):
 
 def getArticleContent(id: int):
     filePath = f"./content/article/{id}.md"
+    articleRes = Article.get(Article.id == id)
+    articleRes.view_count = articleRes.view_count+1
+    articleRes.save(only=[Article.view_count])
     return {
         "content": readMdFile(filePath)
     }

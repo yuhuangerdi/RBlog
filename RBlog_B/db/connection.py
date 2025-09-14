@@ -9,4 +9,5 @@ db = PooledMySQLDatabase(
     user = settings.DB_USER,
     password = settings.DB_PASSWORD,
     charset = "utf8mb4",
+    stale_timeout = 300
 )
