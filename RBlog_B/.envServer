@@ -6,7 +6,7 @@ ENVIRONMENT=dev
 # FastApi debug模式
 DEBUG=False
 # API主机
-API_HOST=0.0.0.0
+API_HOST=115.190.15.202
 # API端口
 API_PORT=8890
 

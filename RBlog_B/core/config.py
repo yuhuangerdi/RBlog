@@ -11,7 +11,8 @@ class Settings(BaseSettings):
     ENVIRONMENT:str = os.getenv("ENVIRONMENT", "dev")
     DEBUG:bool = os.getenv("DEBUG", "False").lower() == "true"
     API_HOST:str = os.getenv("API_HOST", "localhost")
-    API_PORT:int = int(os.getenv("API_PORT", os.getenv("PORT", 8000)))     # 支持两种端口变量名
+    API_PORT:int = int(os.getenv("API_PORT", os.getenv("PORT", 8000))) 
+    API_ADDR:str = os.getenv("API_ADDR", "localhost")
 
     # 数据库配置
     DB_HOST:str = os.getenv("DB_HOST", "localhost")

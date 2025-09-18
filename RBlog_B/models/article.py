@@ -1,4 +1,4 @@
-from peewee import IntegerField, CharField, DateField, AutoField
+from peewee import IntegerField, CharField, DateField, BooleanField, AutoField
 from models.base import BaseModel
 
 class Article(BaseModel):
@@ -13,6 +13,7 @@ class Article(BaseModel):
     pub_date = DateField(null=False)
     date_number = IntegerField()
     category_id = IntegerField(null=False)
+    is_showed = IntegerField(null=False)
     
     class Meta:
         table_name = 'article'

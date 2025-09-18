@@ -8,7 +8,7 @@ def run():
     
     uvicorn.run(
         app = "api.app:app",
-        host = settings.API_HOST,
+        host = "0.0.0.0",
         port = settings.API_PORT,
         reload = settings.DEBUG,
     )

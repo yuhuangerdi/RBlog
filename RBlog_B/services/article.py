@@ -20,7 +20,9 @@ def getArticleCardData(id: int):
         "commentCount": articleCardData.comment_count,
         "viewCount": articleCardData.view_count,
         "summary": articleCardData.summary,
-        "imgPath": f"https://{settings.API_HOST}:{settings.API_PORT}/static/picture/article/{id}/0.png",
+        # 这里你可以使用网址或者IP地址返回封面图片
+        # "imgPath": f"https://{settings.API_HOST}:{settings.API_PORT}/static/picture/article/{id}/0.webp",
+        "imgPath": f"https://{settings.API_ADDR}/static/picture/article/{id}/0.webp",
         "author": articleCardData.author,
         "tags": articleCardData.tag,
         "data": articleCardData.pub_date.strftime("%Y-%m-%d")

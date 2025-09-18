@@ -4,3 +4,13 @@ RBlog_B/.env
 RBlog_B/static/**/*
 RBlog_B/comments/**/*
 RBlog_B/content/**/*
+# Python virtual environments
+.venv/
+venv/
+env/
+*.pyc
+__pycache__/
+# npm packages
+node_modules/
+RBlog_B/.idea
+RBlog_Admin/.vscode
